@@ -1,0 +1,3805 @@
+
+
+HI-TECH Software PIC PRO Macro Assembler V9.83 build 10920 
+                                                                                               Sat Nov 30 14:18:39 2019
+
+HI-TECH Software Omniscient Code Generator (PRO mode) build 10920
+     1                           	processor	16F685
+     2                           	opt	pw 120
+     3                           	opt	pm
+     4                           	psect	idataBANK0,global,class=CODE,delta=2
+     5                           	psect	cinit,global,class=CODE,delta=2
+     6                           	psect	bssBANK0,global,class=BANK0,space=1,delta=1
+     7                           	psect	dataBANK0,global,class=BANK0,space=1,delta=1
+     8                           	psect	inittext,global,class=CODE,delta=2
+     9                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1
+    10                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1
+    11                           	psect	maintext,global,class=CODE,delta=2
+    12                           	psect	swtext1,local,class=CONST,delta=2
+    13                           	psect	text522,local,class=CODE,delta=2
+    14                           	psect	text523,local,class=CODE,delta=2
+    15                           	psect	text524,local,class=CODE,delta=2
+    16                           	psect	text525,local,class=CODE,delta=2
+    17                           	psect	text526,local,class=CODE,delta=2
+    18                           	psect	text527,local,class=CODE,delta=2
+    19                           	psect	text528,local,class=CODE,delta=2
+    20                           	psect	text529,local,class=CODE,delta=2
+    21                           	psect	text530,local,class=CODE,delta=2
+    22                           	psect	text531,local,class=CODE,delta=2
+    23                           	psect	text532,local,class=CODE,delta=2
+    24                           	psect	text533,local,class=CODE,delta=2
+    25                           	psect	text534,local,class=CODE,delta=2
+    26                           	psect	text535,local,class=CODE,delta=2
+    27                           	psect	text536,local,class=CODE,delta=2
+    28                           	psect	text537,local,class=CODE,delta=2
+    29                           	psect	text538,local,class=CODE,delta=2
+    30                           	psect	text539,local,class=CODE,delta=2
+    31                           	psect	text540,local,class=CODE,delta=2
+    32                           	psect	text541,local,class=CODE,delta=2
+    33                           	psect	text542,local,class=CODE,delta=2
+    34                           	psect	text543,local,class=CODE,delta=2
+    35                           	psect	intentry,global,class=CODE,delta=2
+    36                           	psect	text544,local,class=CODE,delta=2
+    37                           	psect	pa_nodes,global,class=CODE,delta=2
+    38                           	dabs	1,0x19D,1
+    39                           	dabs	1,0x19E,1
+    40                           	dabs	1,0x19E,1
+    41                           	dabs	1,0x19E,1
+    42                           	dabs	1,0x18C,1
+    43                           	dabs	1,0x19E,1
+    44                           	dabs	1,0x19E,1
+    45                           	dabs	1,0x19E,1
+    46                           	dabs	1,0x19E,1
+    47                           	dabs	1,0x19D,1
+    48                           	dabs	1,0x19D,1
+    49                           	dabs	1,0x19D,1
+    50                           	dabs	1,0x19D,1
+    51                           	dabs	1,0x19D,1
+    52                           	dabs	1,0x18C,1
+    53                           	dabs	1,0x7E,2
+    54  000A                     
+    55                           	psect	idataBANK0
+    56  0380                     __pidataBANK0:	
+    57                           
+    58                           ;initializer for id_clear@F962
+    59  0380  34FF               	retlw	255
+    60  0381  34FF               	retlw	255
+    61  0382  34FF               	retlw	255
+    62  0383  34FF               	retlw	255
+    63  0384  34FF               	retlw	255
+    64                           
+    65                           ;initializer for _buffTag
+    66  0385  3400               	retlw	0
+    67  0386  3400               	retlw	0
+    68  0387  3411               	retlw	17
+    69  0388  340B               	retlw	11
+    70  0389  344F               	retlw	79
+    71  038A  3400               	retlw	0
+    72  038B  3400               	retlw	0
+    73  038C  3481               	retlw	129
+    74  038D  342F               	retlw	47
+    75  038E  3422               	retlw	34
+    76  038F  3400               	retlw	0
+    77  0390  3400               	retlw	0
+    78  0391  347D               	retlw	125
+    79  0392  3467               	retlw	103
+    80  0393  3405               	retlw	5
+    81  0394  3400               	retlw	0
+    82  0395  3400               	retlw	0
+    83  0396  347E               	retlw	126
+    84  0397  3431               	retlw	49
+    85  0398  34E7               	retlw	231
+    86  0399  3400               	retlw	0
+    87  039A  3400               	retlw	0
+    88  039B  347E               	retlw	126
+    89  039C  3451               	retlw	81
+    90  039D  34E6               	retlw	230
+    91  019D                     _PSTRCON	set	413	;_PSTRCON
+    92  019E                     _SRCON	set	414	;_SRCON
+    93  0CF5                     _C1SEN	set	3317	;_C1SEN
+    94  0CF4                     _C2REN	set	3316	;_C2REN
+    95  0C67                     _EEPGD	set	3175	;_EEPGD
+    96  0CF2                     _PULSR	set	3314	;_PULSR
+    97  0CF3                     _PULSS	set	3315	;_PULSS
+    98  0CF6                     _SR0	set	3318	;_SR0
+    99  0CF7                     _SR1	set	3319	;_SR1
+   100  0CE8                     _STRA	set	3304	;_STRA
+   101  0CE9                     _STRB	set	3305	;_STRB
+   102  0CEA                     _STRC	set	3306	;_STRC
+   103  0CEB                     _STRD	set	3307	;_STRD
+   104  0CEC                     _STRSYNC	set	3308	;_STRSYNC
+   105  0C62                     _WREN	set	3170	;_WREN
+   106  0015                     _EPWM1CON	set	21
+   107  0013                     _EPWMR1L	set	19
+   108  000B                     _INTCON	set	11
+   109  000C                     _PIR1	set	12
+   110  0005                     _PORTA	set	5
+   111  0007                     _PORTC	set	7
+   112  0016                     _PWM1CON	set	22
+   113  0010                     _T1CON	set	16
+   114  0012                     _T2CON	set	18
+   115  000F                     _TMR1H	set	15
+   116  000E                     _TMR1L	set	14
+   117  0011                     _TMR2	set	17
+   118  0067                     _EEIF	set	103
+   119  005F                     _GIE	set	95
+   120  005E                     _PEIE	set	94
+   121  002B                     _RA3	set	43
+   122  002C                     _RA4	set	44
+   123  0038                     _RC0	set	56
+   124  005D                     _T0IE	set	93
+   125  005A                     _T0IF	set	90
+   126  0060                     _TMR1IF	set	96
+   127  0080                     _TMR1ON	set	128
+   128  0061                     _TMR2IF	set	97
+   129  009B                     _EEADR	set	155
+   130  009C                     _EECON1	set	156
+   131  009A                     _EEDAT	set	154
+   132  0090                     _EPWM1AUX	set	144
+   133  0081                     _OPTION	set	129
+   134  008F                     _OSCCON	set	143
+   135  008C                     _PIE1	set	140
+   136  0092                     _PR2	set	146
+   137  0085                     _TRISA	set	133
+   138  0087                     _TRISC	set	135
+   139  0095                     _WPUA	set	149
+   140  0088                     _WPUC	set	136
+   141  047A                     _HTS	set	1146
+   142  04E0                     _RD	set	1248
+   143  0460                     _TMR1IE	set	1120
+   144  0461                     _TMR2IE	set	1121
+   145  04E8                     _WR	set	1256
+   146                           
+   147                           	psect	cinit
+   148  03EB                     start_initialization:	
+   149  03EB  303E               	movlw	low (__pdataBANK0+30)
+   150                           
+   151                           ; Clear objects allocated to BANK0
+   152  03EC  01D8               	clrf	__pbssBANK0& (0+127)
+   153  03ED  01D9               	clrf	(__pbssBANK0+1)& (0+127)
+   154  03EE  01DA               	clrf	(__pbssBANK0+2)& (0+127)
+   155  03EF  01DB               	clrf	(__pbssBANK0+3)& (0+127)
+   156  03F0  01DC               	clrf	(__pbssBANK0+4)& (0+127)
+   157  03F1  01DD               	clrf	(__pbssBANK0+5)& (0+127)
+   158  03F2  01DE               	clrf	(__pbssBANK0+6)& (0+127)
+   159  03F3  01DF               	clrf	(__pbssBANK0+7)& (0+127)
+   160  03F4  01E0               	clrf	(__pbssBANK0+8)& (0+127)
+   161  03F5  01E1               	clrf	(__pbssBANK0+9)& (0+127)
+   162  03F6  01E2               	clrf	(__pbssBANK0+10)& (0+127)
+   163                           
+   164                           ; Initialize objects allocated to BANK0
+   165  03F7  1383               	bcf	3,7	;select IRP bank0
+   166  03F8  00FD               	movwf	125
+   167  03F9  3003               	movlw	high __pidataBANK0
+   168  03FA  00FE               	movwf	126
+   169  03FB  3080               	movlw	low __pidataBANK0
+   170  03FC  00FF               	movwf	127
+   171  03FD  3020               	movlw	low __pdataBANK0
+   172  03FE  0084               	movwf	4
+   173  03FF  2462               	fcall	init_ram
+   174  0400                     end_of_initialization:	
+   175                           ;End of C runtime variable initialization code
+   176                           
+   177  0400  0183               	clrf	3
+   178  0401  2958               	ljmp	_main	;jump to C main() function
+   179                           
+   180                           	psect	bssBANK0
+   181  0058                     __pbssBANK0:	
+   182  0058                     _timeOut:	
+   183  0058                     	ds	2
+   184  005A                     _timeTick:	
+   185  005A                     	ds	2
+   186  005C                     _kepTag:	
+   187  005C                     	ds	1
+   188  005D                     _mtState:	
+   189  005D                     	ds	1
+   190  005E                     _keyID:	
+   191  005E                     	ds	5
+   192                           
+   193                           	psect	dataBANK0
+   194  0020                     __pdataBANK0:	
+   195  0020                     id_clear@F962:	
+   196  0020                     	ds	5
+   197  0025                     _buffTag:	
+   198  0025                     	ds	25
+   199                           
+   200                           	psect	inittext
+   201  045E                     init_fetch:	
+   202                           ;	Called with low address in FSR and high address in W
+   203                           
+   204  045E  087E               	movf	126,w
+   205  045F  008A               	movwf	10
+   206  0460  087F               	movf	127,w
+   207  0461  0082               	movwf	2
+   208  0462                     init_ram:	
+   209                           ;Called with:
+   210                           ;	high address of idata address in btemp 
+   211                           ;	low address of idata address in btemp+1 
+   212                           ;	low address of data in FSR
+   213                           ;	high address + 1 of data in btemp-1
+   214                           
+   215  0462  245E               	fcall	init_fetch
+   216  0463  0080               	movwf	0
+   217  0464  0A84               	incf	4,f
+   218  0465  0804               	movf	4,w
+   219  0466  067D               	xorwf	125,w
+   220  0467  1903               	btfsc	3,2
+   221  0468  3400               	retlw	0
+   222  0469  0AFF               	incf	127,f
+   223  046A  1903               	btfsc	3,2
+   224  046B  0AFE               	incf	126,f
+   225  046C  2C62               	goto	init_ram
+   226                           
+   227                           	psect	cstackCOMMON
+   228  0070                     __pcstackCOMMON:	
+   229  0070                     ?_sys_init:	
+   230  0070                     ?_gpio_init:	
+   231                           ; 0 bytes @ 0x0
+   232                           
+   233  0070                     ?_timer_init:	
+   234                           ; 0 bytes @ 0x0
+   235                           
+   236  0070                     ?_int_init:	
+   237                           ; 0 bytes @ 0x0
+   238                           
+   239  0070                     ?_SET_EPWM_ON:	
+   240                           ; 0 bytes @ 0x0
+   241                           
+   242  0070                     ?_delay_x10ms:	
+   243                           ; 0 bytes @ 0x0
+   244                           
+   245  0070                     ?_ISR:	
+   246                           ; 0 bytes @ 0x0
+   247                           
+   248  0070                     ??_ISR:	
+   249                           ; 0 bytes @ 0x0
+   250                           
+   251  0070                     ?_main:	
+   252                           ; 0 bytes @ 0x0
+   253                           
+   254  0070                     ?_eepromReadByte:	
+   255                           ; 0 bytes @ 0x0
+   256                           
+   257  0070                     ?_get_RFID:	
+   258                           ; 1 bytes @ 0x0
+   259                           
+   260                           
+   261                           ; 1 bytes @ 0x0
+   262  0070                     	ds	2
+   263  0072                     ??_sys_init:	
+   264  0072                     ??_gpio_init:	
+   265                           ; 0 bytes @ 0x2
+   266                           
+   267  0072                     ??_timer_init:	
+   268                           ; 0 bytes @ 0x2
+   269                           
+   270  0072                     ??_int_init:	
+   271                           ; 0 bytes @ 0x2
+   272                           
+   273  0072                     ??_eepromReadByte:	
+   274                           ; 0 bytes @ 0x2
+   275                           
+   276  0072                     ?_eepromWriteByte:	
+   277                           ; 0 bytes @ 0x2
+   278                           
+   279  0072                     ??_SET_EPWM_ON:	
+   280                           ; 0 bytes @ 0x2
+   281                           
+   282  0072                     ??_delay_x10ms:	
+   283                           ; 0 bytes @ 0x2
+   284                           
+   285  0072                     ?_setState:	
+   286                           ; 0 bytes @ 0x2
+   287                           
+   288  0072                     ?_comArr:	
+   289                           ; 0 bytes @ 0x2
+   290                           
+   291  0072                     ?___bmul:	
+   292                           ; 1 bytes @ 0x2
+   293                           
+   294  0072                     ?___lbdiv:	
+   295                           ; 1 bytes @ 0x2
+   296                           
+   297  0072                     ?_timerOut:	
+   298                           ; 1 bytes @ 0x2
+   299                           
+   300  0072                     ?___lwmod:	
+   301                           ; 2 bytes @ 0x2
+   302                           
+   303  0072                     eepromReadByte@EEAddr:	
+   304                           ; 2 bytes @ 0x2
+   305                           
+   306  0072                     eepromWriteByte@EEData:	
+   307                           ; 1 bytes @ 0x2
+   308                           
+   309  0072                     comArr@arr2:	
+   310                           ; 1 bytes @ 0x2
+   311                           
+   312  0072                     ___bmul@multiplicand:	
+   313                           ; 1 bytes @ 0x2
+   314                           
+   315  0072                     ___lbdiv@divisor:	
+   316                           ; 1 bytes @ 0x2
+   317                           
+   318  0072                     timerOut@time:	
+   319                           ; 1 bytes @ 0x2
+   320                           
+   321  0072                     setState@_tOut:	
+   322                           ; 2 bytes @ 0x2
+   323                           
+   324  0072                     ___lwmod@divisor:	
+   325                           ; 2 bytes @ 0x2
+   326                           
+   327                           
+   328                           ; 2 bytes @ 0x2
+   329  0072                     	ds	1
+   330  0073                     ??_eepromWriteByte:	
+   331  0073                     ??___bmul:	
+   332                           ; 0 bytes @ 0x3
+   333                           
+   334  0073                     ??___lbdiv:	
+   335                           ; 0 bytes @ 0x3
+   336                           
+   337  0073                     eepromReadByte@ReEepromData:	
+   338                           ; 0 bytes @ 0x3
+   339                           
+   340  0073                     comArr@len1:	
+   341                           ; 1 bytes @ 0x3
+   342                           
+   343  0073                     ___bmul@product:	
+   344                           ; 1 bytes @ 0x3
+   345                           
+   346  0073                     ___lbdiv@dividend:	
+   347                           ; 1 bytes @ 0x3
+   348                           
+   349                           
+   350                           ; 1 bytes @ 0x3
+   351  0073                     	ds	1
+   352  0074                     ?_eepromReadBlock:	
+   353  0074                     ??_timerOut:	
+   354                           ; 0 bytes @ 0x4
+   355                           
+   356  0074                     ??_setState:	
+   357                           ; 0 bytes @ 0x4
+   358                           
+   359  0074                     eepromReadBlock@buff:	
+   360                           ; 0 bytes @ 0x4
+   361                           
+   362  0074                     comArr@len2:	
+   363                           ; 1 bytes @ 0x4
+   364                           
+   365  0074                     timerOut@Logic:	
+   366                           ; 1 bytes @ 0x4
+   367                           
+   368  0074                     delay_x10ms@t:	
+   369                           ; 1 bytes @ 0x4
+   370                           
+   371  0074                     setState@stt:	
+   372                           ; 1 bytes @ 0x4
+   373                           
+   374  0074                     ___bmul@multiplier:	
+   375                           ; 1 bytes @ 0x4
+   376                           
+   377  0074                     ___lbdiv@counter:	
+   378                           ; 1 bytes @ 0x4
+   379                           
+   380  0074                     ___lwmod@dividend:	
+   381                           ; 1 bytes @ 0x4
+   382                           
+   383                           
+   384                           ; 2 bytes @ 0x4
+   385  0074                     	ds	1
+   386  0075                     ??_comArr:	
+   387  0075                     ?_beep2:	
+   388                           ; 0 bytes @ 0x5
+   389                           
+   390  0075                     eepromReadBlock@len:	
+   391                           ; 0 bytes @ 0x5
+   392                           
+   393  0075                     eepromWriteByte@EEAddr:	
+   394                           ; 1 bytes @ 0x5
+   395                           
+   396  0075                     beep2@rep:	
+   397                           ; 1 bytes @ 0x5
+   398                           
+   399  0075                     ___lbdiv@quotient:	
+   400                           ; 1 bytes @ 0x5
+   401                           
+   402  0075                     timerOut@CurTimer:	
+   403                           ; 1 bytes @ 0x5
+   404                           
+   405                           
+   406                           ; 2 bytes @ 0x5
+   407  0075                     	ds	1
+   408  0076                     ??_eepromReadBlock:	
+   409  0076                     ?_eepromWriteBlock:	
+   410                           ; 0 bytes @ 0x6
+   411                           
+   412  0076                     ??_beep2:	
+   413                           ; 0 bytes @ 0x6
+   414                           
+   415  0076                     ??___lwmod:	
+   416                           ; 0 bytes @ 0x6
+   417                           
+   418  0076                     eepromWriteBlock@buff:	
+   419                           ; 0 bytes @ 0x6
+   420                           
+   421  0076                     beep2@sel:	
+   422                           ; 1 bytes @ 0x6
+   423                           
+   424  0076                     ___lwmod@counter:	
+   425                           ; 1 bytes @ 0x6
+   426                           
+   427                           
+   428                           ; 1 bytes @ 0x6
+   429  0076                     	ds	1
+   430  0077                     ??_get_RFID:	
+   431  0077                     eepromReadBlock@addStart:	
+   432                           ; 0 bytes @ 0x7
+   433                           
+   434  0077                     eepromWriteBlock@len:	
+   435                           ; 1 bytes @ 0x7
+   436                           
+   437                           
+   438                           ; 1 bytes @ 0x7
+   439  0077                     	ds	1
+   440  0078                     ??_eepromWriteBlock:	
+   441  0078                     eepromReadBlock@i:	
+   442                           ; 0 bytes @ 0x8
+   443                           
+   444  0078                     comArr@arr1:	
+   445                           ; 1 bytes @ 0x8
+   446                           
+   447                           
+   448                           ; 1 bytes @ 0x8
+   449  0078                     	ds	1
+   450  0079                     eepromWriteBlock@addStart:	
+   451  0079                     comArr@i:	
+   452                           ; 1 bytes @ 0x9
+   453                           
+   454                           
+   455                           ; 1 bytes @ 0x9
+   456  0079                     	ds	1
+   457  007A                     ?_id_search:	
+   458  007A                     eepromWriteBlock@i:	
+   459                           ; 1 bytes @ 0xA
+   460                           
+   461  007A                     id_search@buff:	
+   462                           ; 1 bytes @ 0xA
+   463                           
+   464                           
+   465                           ; 1 bytes @ 0xA
+   466  007A                     	ds	1
+   467  007B                     ??_id_search:	
+   468  007B                     id_replate@id:	
+   469                           ; 0 bytes @ 0xB
+   470                           
+   471                           
+   472                           ; 1 bytes @ 0xB
+   473  007B                     	ds	1
+   474  007C                     ??_id_clear:	
+   475                           
+   476                           	psect	cstackBANK0
+   477  003E                     __pcstackBANK0:	
+   478                           ; 0 bytes @ 0xC
+   479                           
+   480  003E                     ?_id_replate:	
+   481  003E                     id_search@id_input:	
+   482                           ; 0 bytes @ 0x0
+   483                           
+   484  003E                     id_replate@Cont:	
+   485                           ; 1 bytes @ 0x0
+   486                           
+   487  003E                     get_RFID@RF_serial_55bits:	
+   488                           ; 1 bytes @ 0x0
+   489                           
+   490                           
+   491                           ; 11 bytes @ 0x0
+   492  003E                     	ds	1
+   493  003F                     id_search@i:	
+   494  003F                     id_replate@buff:	
+   495                           ; 1 bytes @ 0x1
+   496                           
+   497                           
+   498                           ; 1 bytes @ 0x1
+   499  003F                     	ds	1
+   500  0040                     ??_id_replate:	
+   501                           
+   502                           ; 0 bytes @ 0x2
+   503  0040                     	ds	2
+   504  0042                     ?_id_clear:	
+   505  0042                     id_clear@idMax:	
+   506                           ; 0 bytes @ 0x4
+   507                           
+   508                           
+   509                           ; 1 bytes @ 0x4
+   510  0042                     	ds	1
+   511  0043                     id_clear@tmp:	
+   512                           
+   513                           ; 5 bytes @ 0x5
+   514  0043                     	ds	5
+   515  0048                     id_clear@idMin:	
+   516                           
+   517                           ; 1 bytes @ 0xA
+   518  0048                     	ds	1
+   519  0049                     get_RFID@flag_RFID_syn:	
+   520                           
+   521                           ; 1 bytes @ 0xB
+   522  0049                     	ds	1
+   523  004A                     get_RFID@even_col:	
+   524                           
+   525                           ; 1 bytes @ 0xC
+   526  004A                     	ds	1
+   527  004B                     get_RFID@even_row:	
+   528                           
+   529                           ; 1 bytes @ 0xD
+   530  004B                     	ds	1
+   531  004C                     get_RFID@j:	
+   532                           
+   533                           ; 1 bytes @ 0xE
+   534  004C                     	ds	1
+   535  004D                     get_RFID@i:	
+   536                           
+   537                           ; 1 bytes @ 0xF
+   538  004D                     	ds	1
+   539  004E                     get_RFID@flag_RFID_last:	
+   540                           
+   541                           ; 1 bytes @ 0x10
+   542  004E                     	ds	1
+   543  004F                     get_RFID@timeOutVal:	
+   544                           
+   545                           ; 2 bytes @ 0x11
+   546  004F                     	ds	2
+   547  0051                     get_RFID@ii:	
+   548                           
+   549                           ; 1 bytes @ 0x13
+   550  0051                     	ds	1
+   551  0052                     ??_main:	
+   552                           
+   553                           ; 0 bytes @ 0x14
+   554  0052                     	ds	3
+   555  0055                     main@idState:	
+   556                           
+   557                           ; 1 bytes @ 0x17
+   558  0055                     	ds	1
+   559  0056                     main@tmp:	
+   560                           
+   561                           ; 1 bytes @ 0x18
+   562  0056                     	ds	1
+   563  0057                     main@idop:	
+   564                           
+   565                           ; 1 bytes @ 0x19
+   566  0057                     	ds	1
+   567                           
+   568                           	psect	maintext
+   569  0158                     __pmaintext:	
+   570 ;;Data sizes: Strings 0, constant 0, data 30, bss 11, persistent 0 stack 0
+   571 ;;Auto spaces:   Size  Autos    Used
+   572 ;; COMMON          14     12      12
+   573 ;; BANK0           80     26      67
+   574 ;; BANK1           32      0       0
+   575 ;;
+   576 ;; Pointer list with targets:
+   577 ;; ?___lwmod	unsigned int  size(1) Largest target is 0
+   578 ;;
+   579 ;; ?_timerOut	unsigned int  size(1) Largest target is 0
+   580 ;;
+   581 ;; id_replate@Cont	PTR unsigned char  size(1) Largest target is 5
+   582 ;;		 -> id_clear@tmp(BANK0[5]), keyID(BANK0[5]), 
+   583 ;;
+   584 ;; id_replate@buff	PTR unsigned char  size(1) Largest target is 25
+   585 ;;		 -> buffTag(BANK0[25]), 
+   586 ;;
+   587 ;; id_search@buff	PTR unsigned char  size(1) Largest target is 25
+   588 ;;		 -> buffTag(BANK0[25]), 
+   589 ;;
+   590 ;; id_search@id_input	PTR unsigned char  size(1) Largest target is 5
+   591 ;;		 -> keyID(BANK0[5]), 
+   592 ;;
+   593 ;; comArr@arr2	PTR unsigned char  size(1) Largest target is 25
+   594 ;;		 -> buffTag(BANK0[25]), 
+   595 ;;
+   596 ;; comArr@arr1	PTR unsigned char  size(1) Largest target is 5
+   597 ;;		 -> keyID(BANK0[5]), 
+   598 ;;
+   599 ;; eepromWriteBlock@buff	PTR unsigned char  size(1) Largest target is 25
+   600 ;;		 -> buffTag(BANK0[25]), 
+   601 ;;
+   602 ;; eepromReadBlock@buff	PTR unsigned char  size(1) Largest target is 25
+   603 ;;		 -> buffTag(BANK0[25]), 
+   604 ;;
+   605 ;;
+   606 ;; Critical Paths under _main in COMMON
+   607 ;;
+   608 ;;   _main->_id_search
+   609 ;;   _main->_id_replate
+   610 ;;   _id_clear->_id_replate
+   611 ;;   _id_replate->_eepromWriteBlock
+   612 ;;   _beep2->_delay_x10ms
+   613 ;;   _eepromWriteBlock->_eepromWriteByte
+   614 ;;   _id_search->_comArr
+   615 ;;   _get_RFID->_timerOut
+   616 ;;   _eepromReadBlock->_eepromReadByte
+   617 ;;
+   618 ;; Critical Paths under _ISR in COMMON
+   619 ;;
+   620 ;;   None.
+   621 ;;
+   622 ;; Critical Paths under _main in BANK0
+   623 ;;
+   624 ;;   _main->_get_RFID
+   625 ;;   _id_clear->_id_replate
+   626 ;;
+   627 ;; Critical Paths under _ISR in BANK0
+   628 ;;
+   629 ;;   None.
+   630 ;;
+   631 ;; Critical Paths under _main in BANK1
+   632 ;;
+   633 ;;   None.
+   634 ;;
+   635 ;; Critical Paths under _ISR in BANK1
+   636 ;;
+   637 ;;   None.
+   638 ;;
+   639 ;;Main: autosize = 0, tempsize = 3, incstack = 0, save=0
+   640 ;;
+   641 ;;
+   642 ;;Call Graph Tables:
+   643 ;;
+   644 ;; ---------------------------------------------------------------------------------
+   645 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   646 ;; ---------------------------------------------------------------------------------
+   647 ;; (0) _main                                                 6     6      0    4698
+   648 ;;                                             20 BANK0      6     6      0
+   649 ;;                           _sys_init
+   650 ;;                          _gpio_init
+   651 ;;                         _timer_init
+   652 ;;                           _int_init
+   653 ;;                    _eepromWriteByte
+   654 ;;                        _SET_EPWM_ON
+   655 ;;                     _eepromReadByte
+   656 ;;                    _eepromReadBlock
+   657 ;;                           _setState
+   658 ;;                           _get_RFID
+   659 ;;                          _id_search
+   660 ;;                           _id_clear
+   661 ;;                              _beep2
+   662 ;;                         _id_replate
+   663 ;;                            ___lwmod
+   664 ;; ---------------------------------------------------------------------------------
+   665 ;; (1) _id_clear                                             7     6      1     718
+   666 ;;                                              4 BANK0      7     6      1
+   667 ;;                         _id_replate
+   668 ;; ---------------------------------------------------------------------------------
+   669 ;; (1) _id_replate                                           5     3      2     623
+   670 ;;                                             11 COMMON     1     1      0
+   671 ;;                                              0 BANK0      4     2      2
+   672 ;;                             ___bmul
+   673 ;;                   _eepromWriteBlock
+   674 ;; ---------------------------------------------------------------------------------
+   675 ;; (1) _beep2                                                2     1      1      88
+   676 ;;                                              5 COMMON     2     1      1
+   677 ;;                        _delay_x10ms
+   678 ;; ---------------------------------------------------------------------------------
+   679 ;; (2) _eepromWriteBlock                                     5     3      2     178
+   680 ;;                                              6 COMMON     5     3      2
+   681 ;;                    _eepromWriteByte
+   682 ;; ---------------------------------------------------------------------------------
+   683 ;; (1) _id_search                                            4     3      1     518
+   684 ;;                                             10 COMMON     2     1      1
+   685 ;;                                              0 BANK0      2     2      0
+   686 ;;                             _comArr
+   687 ;;                            ___lbdiv
+   688 ;; ---------------------------------------------------------------------------------
+   689 ;; (2) _delay_x10ms                                          3     3      0      22
+   690 ;;                                              2 COMMON     3     3      0
+   691 ;; ---------------------------------------------------------------------------------
+   692 ;; (1) _get_RFID                                            21    21      0    1917
+   693 ;;                                              7 COMMON     1     1      0
+   694 ;;                                              0 BANK0     20    20      0
+   695 ;;                           _timerOut
+   696 ;;                            ___lbdiv
+   697 ;; ---------------------------------------------------------------------------------
+   698 ;; (3) _eepromWriteByte                                      4     3      1      44
+   699 ;;                                              2 COMMON     4     3      1
+   700 ;; ---------------------------------------------------------------------------------
+   701 ;; (1) _eepromReadBlock                                      5     3      2     179
+   702 ;;                                              4 COMMON     5     3      2
+   703 ;;                     _eepromReadByte
+   704 ;; ---------------------------------------------------------------------------------
+   705 ;; (1) _sys_init                                             0     0      0       0
+   706 ;; ---------------------------------------------------------------------------------
+   707 ;; (2) ___lbdiv                                              4     3      1     162
+   708 ;;                                              2 COMMON     4     3      1
+   709 ;; ---------------------------------------------------------------------------------
+   710 ;; (1) ___lwmod                                              5     1      4     159
+   711 ;;                                              2 COMMON     5     1      4
+   712 ;; ---------------------------------------------------------------------------------
+   713 ;; (2) ___bmul                                               3     2      1      92
+   714 ;;                                              2 COMMON     3     2      1
+   715 ;; ---------------------------------------------------------------------------------
+   716 ;; (1) _setState                                             3     1      2      44
+   717 ;;                                              2 COMMON     3     1      2
+   718 ;; ---------------------------------------------------------------------------------
+   719 ;; (1) _SET_EPWM_ON                                          0     0      0       0
+   720 ;; ---------------------------------------------------------------------------------
+   721 ;; (2) _timerOut                                             5     3      2      90
+   722 ;;                                              2 COMMON     5     3      2
+   723 ;; ---------------------------------------------------------------------------------
+   724 ;; (2) _comArr                                               8     5      3     222
+   725 ;;                                              2 COMMON     8     5      3
+   726 ;; ---------------------------------------------------------------------------------
+   727 ;; (2) _eepromReadByte                                       2     2      0      45
+   728 ;;                                              2 COMMON     2     2      0
+   729 ;; ---------------------------------------------------------------------------------
+   730 ;; (1) _int_init                                             0     0      0       0
+   731 ;; ---------------------------------------------------------------------------------
+   732 ;; (1) _timer_init                                           0     0      0       0
+   733 ;; ---------------------------------------------------------------------------------
+   734 ;; (1) _gpio_init                                            0     0      0       0
+   735 ;; ---------------------------------------------------------------------------------
+   736 ;; Estimated maximum stack depth 3
+   737 ;; ---------------------------------------------------------------------------------
+   738 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   739 ;; ---------------------------------------------------------------------------------
+   740 ;; (5) _ISR                                                  2     2      0       0
+   741 ;;                                              0 COMMON     2     2      0
+   742 ;; ---------------------------------------------------------------------------------
+   743 ;; Estimated maximum stack depth 5
+   744 ;; ---------------------------------------------------------------------------------
+   745 ;; Call Graph Graphs:
+   746 ;; _main (ROOT)
+   747 ;;   _sys_init
+   748 ;;   _gpio_init
+   749 ;;   _timer_init
+   750 ;;   _int_init
+   751 ;;   _eepromWriteByte
+   752 ;;   _SET_EPWM_ON
+   753 ;;   _eepromReadByte
+   754 ;;   _eepromReadBlock
+   755 ;;     _eepromReadByte
+   756 ;;   _setState
+   757 ;;   _get_RFID
+   758 ;;     _timerOut
+   759 ;;     ___lbdiv
+   760 ;;   _id_search
+   761 ;;     _comArr
+   762 ;;     ___lbdiv
+   763 ;;   _id_clear
+   764 ;;     _id_replate
+   765 ;;       ___bmul
+   766 ;;       _eepromWriteBlock
+   767 ;;         _eepromWriteByte
+   768 ;;   _beep2
+   769 ;;     _delay_x10ms
+   770 ;;   _id_replate
+   771 ;;     ___bmul
+   772 ;;     _eepromWriteBlock
+   773 ;;       _eepromWriteByte
+   774 ;;   ___lwmod
+   775 ;;
+   776 ;; _ISR (ROOT)
+   777 ;;
+   778 ;; Address spaces:
+   779 ;;Name               Size   Autos  Total    Cost      Usage
+   780 ;;SFR2                 0      0       0       5        0.0%
+   781 ;;BITSFR2              0      0       0       5        0.0%
+   782 ;;SFR1                 0      0       0       2        0.0%
+   783 ;;BITSFR1              0      0       0       2        0.0%
+   784 ;;BANK1               20      0       0       6        0.0%
+   785 ;;BITBANK1            20      0       0       5        0.0%
+   786 ;;CODE                 0      0       0       0        0.0%
+   787 ;;DATA                 0      0      53       8        0.0%
+   788 ;;ABS                  0      0      4F       7        0.0%
+   789 ;;NULL                 0      0       0       0        0.0%
+   790 ;;STACK                0      0       4       2        0.0%
+   791 ;;BANK0               50     1A      43       4       83.8%
+   792 ;;BITBANK0            50      0       0       3        0.0%
+   793 ;;SFR0                 0      0       0       1        0.0%
+   794 ;;BITSFR0              0      0       0       1        0.0%
+   795 ;;COMMON               E      C       C       1       85.7%
+   796 ;;BITCOMMON            E      0       0       0        0.0%
+   797 ;;EEDATA              80      0       0       0        0.0%
+   798                           
+   799                           
+   800 ;; *************** function _main *****************
+   801 ;; Defined at:
+   802 ;;		line 190 in file "MAIN.C"
+   803 ;; Parameters:    Size  Location     Type
+   804 ;;		None
+   805 ;; Auto vars:     Size  Location     Type
+   806 ;;  idop            1   25[BANK0 ] unsigned char 
+   807 ;;  tmp             1   24[BANK0 ] unsigned char 
+   808 ;;  idState         1   23[BANK0 ] unsigned char 
+   809 ;; Return value:  Size  Location     Type
+   810 ;;		None               void
+   811 ;; Registers used:
+   812 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   813 ;; Tracked objects:
+   814 ;;		On entry : 17F/0
+   815 ;;		On exit  : 60/0
+   816 ;;		Unchanged: 0/0
+   817 ;; Data sizes:     COMMON   BANK0   BANK1
+   818 ;;      Params:         0       0       0
+   819 ;;      Locals:         0       3       0
+   820 ;;      Temps:          0       3       0
+   821 ;;      Totals:         0       6       0
+   822 ;;Total ram usage:        6 bytes
+   823 ;; Hardware stack levels required when called:    5
+   824 ;; This function calls:
+   825 ;;		_sys_init
+   826 ;;		_gpio_init
+   827 ;;		_timer_init
+   828 ;;		_int_init
+   829 ;;		_eepromWriteByte
+   830 ;;		_SET_EPWM_ON
+   831 ;;		_eepromReadByte
+   832 ;;		_eepromReadBlock
+   833 ;;		_setState
+   834 ;;		_get_RFID
+   835 ;;		_id_search
+   836 ;;		_id_clear
+   837 ;;		_beep2
+   838 ;;		_id_replate
+   839 ;;		___lwmod
+   840 ;; This function is called by:
+   841 ;;		Startup code after reset
+   842 ;; This function uses a non-reentrant model
+   843 ;;
+   844  0158                     _main:	
+   845                           
+   846                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   847  0158  3007               	movlw	7	;#
+   848  0159  0099               	movwf	25	;#
+   849                           
+   850                           ;MAIN.C: 197: unsigned char idop,tmp,idState=0;
+   851  015A  1283               	bcf	3,5	;RP0=0, select bank0
+   852  015B  1303               	bcf	3,6	;RP1=0, select bank0
+   853  015C  01D5               	clrf	main@idState
+   854  015D  0064               	clrwdt	;#
+   855                           
+   856                           ;MAIN.C: 200: sys_init();
+   857  015E  24A3               	fcall	_sys_init
+   858                           
+   859                           ;MAIN.C: 201: gpio_init();
+   860  015F  246D               	fcall	_gpio_init
+   861                           
+   862                           ;MAIN.C: 203: timer_init();
+   863  0160  24AD               	fcall	_timer_init
+   864                           
+   865                           ;MAIN.C: 204: int_init();
+   866  0161  242B               	fcall	_int_init
+   867                           
+   868                           ;MAIN.C: 210: eepromWriteByte(0x7F,0xAA);
+   869  0162  30AA               	movlw	170
+   870  0163  00F2               	movwf	?_eepromWriteByte
+   871  0164  307F               	movlw	127
+   872  0165  22FD               	fcall	_eepromWriteByte
+   873                           
+   874                           ;MAIN.C: 211: eepromWriteByte(0x7F,0xAA);
+   875  0166  30AA               	movlw	170
+   876  0167  00F2               	movwf	?_eepromWriteByte
+   877  0168  307F               	movlw	127
+   878  0169  22FD               	fcall	_eepromWriteByte
+   879                           
+   880                           ;MAIN.C: 214: TRISC &=0xfe;
+   881  016A  1683               	bsf	3,5	;RP0=1, select bank1
+   882  016B  1303               	bcf	3,6	;RP1=0, select bank1
+   883  016C  1007               	bcf	7,0	;volatile
+   884                           
+   885                           ;MAIN.C: 216: SET_EPWM_ON();
+   886  016D  23D3               	fcall	_SET_EPWM_ON
+   887                           
+   888                           ;MAIN.C: 220: _delay((unsigned long)((20)*(8000000/4000.0)));
+   889  016E  3034               	movlw	52
+   890  016F  1283               	bcf	3,5	;RP0=0, select bank0
+   891  0170  00D3               	movwf	??_main+1
+   892  0171  30F1               	movlw	241
+   893  0172  00D2               	movwf	??_main
+   894  0173                     u1917:	
+   895  0173  0BD2               	decfsz	??_main,f
+   896  0174  2973               	goto	u1917
+   897  0175  0BD3               	decfsz	??_main+1,f
+   898  0176  2973               	goto	u1917
+   899  0177  2978               	nop2
+   900                           
+   901                           ;MAIN.C: 225: if(eepromReadByte(0x06)!=0){
+   902  0178  3006               	movlw	6
+   903  0179  24B7               	fcall	_eepromReadByte
+   904  017A  3A00               	xorlw	0
+   905  017B  1903               	skipnz
+   906  017C  298F               	goto	l5843
+   907  017D  3006               	movlw	6
+   908                           
+   909                           ;MAIN.C: 229: eepromWriteByte(0x06,0);
+   910  017E  01F2               	clrf	?_eepromWriteByte
+   911  017F  22FD               	fcall	_eepromWriteByte
+   912  0180  3007               	movlw	7
+   913                           
+   914                           ;MAIN.C: 230: eepromWriteByte(0x06+1,0);
+   915  0181  01F2               	clrf	?_eepromWriteByte
+   916  0182  22FD               	fcall	_eepromWriteByte
+   917                           
+   918                           ;MAIN.C: 231: eepromWriteByte(0x06+2,0x87);
+   919  0183  3087               	movlw	135
+   920  0184  00F2               	movwf	?_eepromWriteByte
+   921  0185  3008               	movlw	8
+   922  0186  22FD               	fcall	_eepromWriteByte
+   923                           
+   924                           ;MAIN.C: 232: eepromWriteByte(0x06+3,0x3a);
+   925  0187  303A               	movlw	58
+   926  0188  00F2               	movwf	?_eepromWriteByte
+   927  0189  3009               	movlw	9
+   928  018A  22FD               	fcall	_eepromWriteByte
+   929                           
+   930                           ;MAIN.C: 233: eepromWriteByte(0x06+4,0xf8);
+   931  018B  30F8               	movlw	248
+   932  018C  00F2               	movwf	?_eepromWriteByte
+   933  018D  300A               	movlw	10
+   934  018E  22FD               	fcall	_eepromWriteByte
+   935  018F                     l5843:	
+   936                           
+   937                           ;MAIN.C: 235: }
+   938                           ;MAIN.C: 236: eepromReadBlock(0x06,buffTag,5*5);
+   939  018F  3025               	movlw	_buffTag& (0+255)
+   940  0190  00F4               	movwf	?_eepromReadBlock
+   941  0191  3019               	movlw	25
+   942  0192  00F5               	movwf	?_eepromReadBlock+1
+   943  0193  3006               	movlw	6
+   944  0194  243D               	fcall	_eepromReadBlock
+   945                           
+   946                           ;MAIN.C: 238: setState(1,45);
+   947  0195  302D               	movlw	45
+   948  0196  00F2               	movwf	?_setState
+   949  0197  3001               	movlw	1
+   950  0198  01F3               	clrf	?_setState+1
+   951  0199  2498               	fcall	_setState
+   952                           
+   953                           ;MAIN.C: 242: tmp=0;
+   954  019A  01D6               	clrf	main@tmp
+   955  019B                     l5849:	
+   956                           
+   957                           ;MAIN.C: 246: if(kepTag==0)
+   958  019B  08DC               	movf	_kepTag,f
+   959  019C  1D03               	skipz
+   960  019D  29A0               	goto	l5853
+   961                           
+   962                           ;MAIN.C: 247: idop = get_RFID();
+   963  019E  200B               	fcall	_get_RFID
+   964  019F  00D7               	movwf	main@idop
+   965  01A0                     l5853:	
+   966                           
+   967                           ;MAIN.C: 249: if(idop&&(kepTag==0)){
+   968  01A0  0857               	movf	main@idop,w
+   969  01A1  1903               	btfsc	3,2
+   970  01A2  2A4B               	goto	l5937
+   971  01A3  08DC               	movf	_kepTag,f
+   972  01A4  1D03               	skipz
+   973  01A5  2A4B               	goto	l5937
+   974                           
+   975                           ;MAIN.C: 250: idop = id_search(keyID,buffTag);
+   976  01A6  3025               	movlw	_buffTag& (0+255)
+   977  01A7  00FA               	movwf	?_id_search
+   978  01A8  305E               	movlw	_keyID& (0+255)
+   979  01A9  23B9               	fcall	_id_search
+   980  01AA  00D7               	movwf	main@idop
+   981                           
+   982                           ;MAIN.C: 251: switch (mtState){
+   983  01AB  2A32               	goto	l5933
+   984  01AC                     l5859:	
+   985                           
+   986                           ;MAIN.C: 253: case 2:
+   987                           ;MAIN.C: 254: if((idop>1) && (idop <6))
+   988  01AC  3002               	movlw	2
+   989  01AD  0257               	subwf	main@idop,w
+   990  01AE  1C03               	skipc
+   991  01AF  29B9               	goto	l5865
+   992  01B0  3006               	movlw	6
+   993  01B1  0257               	subwf	main@idop,w
+   994  01B2  1803               	skipnc
+   995  01B3  29B9               	goto	l5865
+   996  01B4  3000               	movlw	0
+   997                           
+   998                           ;MAIN.C: 255: {
+   999                           ;MAIN.C: 256: setState(0,0);
+  1000  01B5  01F2               	clrf	?_setState
+  1001  01B6  01F3               	clrf	?_setState+1
+  1002  01B7  2498               	fcall	_setState
+  1003                           
+  1004                           ;MAIN.C: 258: }
+  1005  01B8  2A3D               	goto	l3492
+  1006  01B9                     l5865:	
+  1007                           
+  1008                           ;MAIN.C: 259: else if(idop==1)
+  1009  01B9  0B57               	decfsz	main@idop,w
+  1010  01BA  2A3D               	goto	l3492
+  1011                           
+  1012                           ;MAIN.C: 260: {
+  1013                           ;MAIN.C: 262: id_clear(2,5);
+  1014  01BB  3005               	movlw	5
+  1015  01BC  00C2               	movwf	?_id_clear
+  1016  01BD  3002               	movlw	2
+  1017  01BE  2341               	fcall	_id_clear
+  1018  01BF  3003               	movlw	3
+  1019                           
+  1020                           ;MAIN.C: 263: setState(3,0);
+  1021  01C0  01F2               	clrf	?_setState
+  1022  01C1  01F3               	clrf	?_setState+1
+  1023  01C2  2498               	fcall	_setState
+  1024  01C3  3003               	movlw	3
+  1025                           
+  1026                           ;MAIN.C: 264: tmp=1;
+  1027  01C4  01D6               	clrf	main@tmp
+  1028  01C5  0AD6               	incf	main@tmp,f
+  1029                           
+  1030                           ;MAIN.C: 266: beep2(0,3);
+  1031  01C6  00F5               	movwf	?_beep2
+  1032  01C7  3000               	movlw	0
+  1033  01C8  2402               	fcall	_beep2
+  1034  01C9  2A3D               	goto	l3492
+  1035  01CA                     l5875:	
+  1036                           
+  1037                           ;MAIN.C: 277: if(idop==1 && idState == 0){
+  1038  01CA  0B57               	decfsz	main@idop,w
+  1039  01CB  29DE               	goto	l5887
+  1040  01CC  08D5               	movf	main@idState,f
+  1041  01CD  1D03               	skipz
+  1042  01CE  29DE               	goto	l5887
+  1043                           
+  1044                           ;MAIN.C: 279: id_clear(2,5);
+  1045  01CF  3005               	movlw	5
+  1046  01D0  00C2               	movwf	?_id_clear
+  1047  01D1  3002               	movlw	2
+  1048  01D2  2341               	fcall	_id_clear
+  1049  01D3  3003               	movlw	3
+  1050                           
+  1051                           ;MAIN.C: 280: setState(3,0);
+  1052  01D4  01F2               	clrf	?_setState
+  1053  01D5  01F3               	clrf	?_setState+1
+  1054  01D6  2498               	fcall	_setState
+  1055  01D7  3003               	movlw	3
+  1056                           
+  1057                           ;MAIN.C: 281: tmp=1;
+  1058  01D8  01D6               	clrf	main@tmp
+  1059  01D9  0AD6               	incf	main@tmp,f
+  1060                           
+  1061                           ;MAIN.C: 283: beep2(0,3);
+  1062  01DA  00F5               	movwf	?_beep2
+  1063  01DB  3000               	movlw	0
+  1064  01DC  2402               	fcall	_beep2
+  1065                           
+  1066                           ;MAIN.C: 284: }
+  1067  01DD  2A3D               	goto	l3492
+  1068  01DE                     l5887:	
+  1069                           
+  1070                           ;MAIN.C: 285: else if(idop==2 && idState == 0){
+  1071  01DE  0857               	movf	main@idop,w
+  1072  01DF  3A02               	xorlw	2
+  1073  01E0  1D03               	skipz
+  1074  01E1  2A3D               	goto	l3492
+  1075  01E2  08D5               	movf	main@idState,f
+  1076  01E3  1D03               	skipz
+  1077  01E4  2A3D               	goto	l3492
+  1078                           
+  1079                           ;MAIN.C: 287: id_clear(3,5);
+  1080  01E5  3005               	movlw	5
+  1081  01E6  00C2               	movwf	?_id_clear
+  1082  01E7  3003               	movlw	3
+  1083  01E8  2341               	fcall	_id_clear
+  1084  01E9  3005               	movlw	5
+  1085                           
+  1086                           ;MAIN.C: 288: setState(5,0);
+  1087  01EA  01F2               	clrf	?_setState
+  1088  01EB  01F3               	clrf	?_setState+1
+  1089  01EC  2498               	fcall	_setState
+  1090                           
+  1091                           ;MAIN.C: 289: tmp=2;
+  1092  01ED  3002               	movlw	2
+  1093  01EE  00D6               	movwf	main@tmp
+  1094                           
+  1095                           ;MAIN.C: 291: beep2(1,2);
+  1096  01EF  00F5               	movwf	?_beep2
+  1097  01F0  3001               	movlw	1
+  1098  01F1  2402               	fcall	_beep2
+  1099  01F2  2A3D               	goto	l3492
+  1100  01F3                     l5899:	
+  1101                           
+  1102                           ;MAIN.C: 296: if (idState == 0){
+  1103  01F3  08D5               	movf	main@idState,f
+  1104  01F4  1D03               	skipz
+  1105  01F5  2A0D               	goto	l5913
+  1106                           
+  1107                           ;MAIN.C: 303: if( idop !=1){
+  1108  01F6  0357               	decf	main@idop,w
+  1109  01F7  1903               	skipnz
+  1110  01F8  2A3D               	goto	l3492
+  1111  01F9  3006               	movlw	6
+  1112                           
+  1113                           ;MAIN.C: 304: tmp++;
+  1114  01FA  0AD6               	incf	main@tmp,f
+  1115                           
+  1116                           ;MAIN.C: 306: if(tmp <=5){
+  1117  01FB  0256               	subwf	main@tmp,w
+  1118  01FC  1803               	skipnc
+  1119  01FD  2A3D               	goto	l3492
+  1120                           
+  1121                           ;MAIN.C: 307: id_replate(tmp,keyID,buffTag);
+  1122  01FE  305E               	movlw	_keyID& (0+255)
+  1123  01FF  00BE               	movwf	?_id_replate
+  1124  0200  3025               	movlw	_buffTag& (0+255)
+  1125  0201  00BF               	movwf	?_id_replate+1
+  1126  0202  0856               	movf	main@tmp,w
+  1127  0203  229E               	fcall	_id_replate
+  1128  0204  3002               	movlw	2
+  1129                           
+  1130                           ;MAIN.C: 308: timeTick=0;
+  1131  0205  1283               	bcf	3,5	;RP0=0, select bank0
+  1132  0206  1303               	bcf	3,6	;RP1=0, select bank0
+  1133  0207  01DA               	clrf	_timeTick
+  1134  0208  01DB               	clrf	_timeTick+1
+  1135                           
+  1136                           ;MAIN.C: 310: beep2(1,2);
+  1137  0209  00F5               	movwf	?_beep2
+  1138  020A  3001               	movlw	1
+  1139  020B  2402               	fcall	_beep2
+  1140  020C  2A3D               	goto	l3492
+  1141  020D                     l5913:	
+  1142  020D  3000               	movlw	0
+  1143                           
+  1144                           ;MAIN.C: 317: beep2(0,1);
+  1145  020E  01F5               	clrf	?_beep2
+  1146  020F  0AF5               	incf	?_beep2,f
+  1147  0210  2402               	fcall	_beep2
+  1148  0211  2A3D               	goto	l3492
+  1149  0212                     l5915:	
+  1150                           
+  1151                           ;MAIN.C: 322: if(idState == 0){
+  1152  0212  08D5               	movf	main@idState,f
+  1153  0213  1D03               	skipz
+  1154  0214  2A2D               	goto	l5929
+  1155                           
+  1156                           ;MAIN.C: 323: if( idop >2){
+  1157  0215  3003               	movlw	3
+  1158  0216  0257               	subwf	main@idop,w
+  1159  0217  1C03               	skipc
+  1160  0218  2A3D               	goto	l3492
+  1161  0219  3006               	movlw	6
+  1162                           
+  1163                           ;MAIN.C: 324: tmp++;
+  1164  021A  0AD6               	incf	main@tmp,f
+  1165                           
+  1166                           ;MAIN.C: 326: if(tmp <=5){
+  1167  021B  0256               	subwf	main@tmp,w
+  1168  021C  1803               	skipnc
+  1169  021D  2A3D               	goto	l3492
+  1170                           
+  1171                           ;MAIN.C: 327: id_replate(tmp,keyID,buffTag);
+  1172  021E  305E               	movlw	_keyID& (0+255)
+  1173  021F  00BE               	movwf	?_id_replate
+  1174  0220  3025               	movlw	_buffTag& (0+255)
+  1175  0221  00BF               	movwf	?_id_replate+1
+  1176  0222  0856               	movf	main@tmp,w
+  1177  0223  229E               	fcall	_id_replate
+  1178  0224  3002               	movlw	2
+  1179                           
+  1180                           ;MAIN.C: 328: timeTick=0;
+  1181  0225  1283               	bcf	3,5	;RP0=0, select bank0
+  1182  0226  1303               	bcf	3,6	;RP1=0, select bank0
+  1183  0227  01DA               	clrf	_timeTick
+  1184  0228  01DB               	clrf	_timeTick+1
+  1185                           
+  1186                           ;MAIN.C: 330: beep2(1,2);
+  1187  0229  00F5               	movwf	?_beep2
+  1188  022A  3001               	movlw	1
+  1189  022B  2402               	fcall	_beep2
+  1190  022C  2A3D               	goto	l3492
+  1191  022D                     l5929:	
+  1192  022D  3000               	movlw	0
+  1193                           
+  1194                           ;MAIN.C: 337: beep2(0,1);
+  1195  022E  01F5               	clrf	?_beep2
+  1196  022F  0AF5               	incf	?_beep2,f
+  1197  0230  2402               	fcall	_beep2
+  1198  0231  2A3D               	goto	l3492
+  1199  0232                     l5933:	
+  1200  0232  085D               	movf	_mtState,w
+  1201                           
+  1202                           ; Switch size 1, requested type "space"
+  1203                           ; Number of cases is 6, Range of values is 0 to 6
+  1204                           ; switch strategies available:
+  1205                           ; Name         Instructions Cycles
+  1206                           ; direct_byte           13     6 (fixed)
+  1207                           ; simple_byte           19    10 (average)
+  1208                           ; jumptable            260     6 (fixed)
+  1209                           ; rangetable            11     6 (fixed)
+  1210                           ; spacedrange           20     9 (fixed)
+  1211                           ; locatedrange           7     3 (fixed)
+  1212                           ;	Chosen strategy is direct_byte
+  1213  0233  0084               	movwf	4
+  1214  0234  3007               	movlw	7
+  1215  0235  0204               	subwf	4,w
+  1216  0236  1803               	skipnc
+  1217  0237  2A3D               	goto	l3492
+  1218  0238  3004               	movlw	high S6003
+  1219  0239  008A               	movwf	10
+  1220  023A  30C0               	movlw	low S6003
+  1221  023B  0704               	addwf	4,w
+  1222  023C  0082               	movwf	2
+  1223  023D                     l3492:	
+  1224  023D  309F               	movlw	159
+  1225                           
+  1226                           ;MAIN.C: 343: idState = 1;
+  1227  023E  1283               	bcf	3,5	;RP0=0, select bank0
+  1228  023F  1303               	bcf	3,6	;RP1=0, select bank0
+  1229  0240  01D5               	clrf	main@idState
+  1230  0241  0AD5               	incf	main@idState,f
+  1231                           
+  1232                           ;MAIN.C: 344: _delay((unsigned long)((61)*(8000000/4000.0)));
+  1233  0242  00D3               	movwf	??_main+1
+  1234  0243  306F               	movlw	111
+  1235  0244  00D2               	movwf	??_main
+  1236  0245                     u1927:	
+  1237  0245  0BD2               	decfsz	??_main,f
+  1238  0246  2A45               	goto	u1927
+  1239  0247  0BD3               	decfsz	??_main+1,f
+  1240  0248  2A45               	goto	u1927
+  1241  0249  2A4A               	nop2
+  1242                           
+  1243                           ;MAIN.C: 345: }
+  1244  024A  2A58               	goto	l5941
+  1245  024B                     l5937:	
+  1246  024B  3002               	movlw	2
+  1247                           
+  1248                           ;MAIN.C: 346: else{
+  1249                           ;MAIN.C: 347: idState =0;
+  1250  024C  01D5               	clrf	main@idState
+  1251                           
+  1252                           ;MAIN.C: 348: _delay((unsigned long)((150)*(8000000/4000.0)));
+  1253  024D  00D4               	movwf	??_main+2
+  1254  024E  3086               	movlw	134
+  1255  024F  00D3               	movwf	??_main+1
+  1256  0250  3099               	movlw	153
+  1257  0251  00D2               	movwf	??_main
+  1258  0252                     u1937:	
+  1259  0252  0BD2               	decfsz	??_main,f
+  1260  0253  2A52               	goto	u1937
+  1261  0254  0BD3               	decfsz	??_main+1,f
+  1262  0255  2A52               	goto	u1937
+  1263  0256  0BD4               	decfsz	??_main+2,f
+  1264  0257  2A52               	goto	u1937
+  1265  0258                     l5941:	
+  1266                           
+  1267                           ;MAIN.C: 349: }
+  1268                           ;MAIN.C: 353: if((timeOut!=0)&&( timeTick > timeOut)){
+  1269  0258  1283               	bcf	3,5	;RP0=0, select bank0
+  1270  0259  1303               	bcf	3,6	;RP1=0, select bank0
+  1271  025A  0859               	movf	_timeOut+1,w
+  1272  025B  0458               	iorwf	_timeOut,w
+  1273  025C  1903               	skipnz
+  1274  025D  2A80               	goto	l5955
+  1275  025E  085B               	movf	_timeTick+1,w
+  1276  025F  0259               	subwf	_timeOut+1,w
+  1277  0260  1D03               	skipz
+  1278  0261  2A64               	goto	u1875
+  1279  0262  085A               	movf	_timeTick,w
+  1280  0263  0258               	subwf	_timeOut,w
+  1281  0264                     u1875:	
+  1282  0264  1C03               	btfss	3,0
+  1283  0265  2A75               	goto	l5953
+  1284  0266  2A80               	goto	l5955
+  1285  0267                     l5947:	
+  1286                           
+  1287                           ;MAIN.C: 358: setState(2,255);
+  1288  0267  30FF               	movlw	255
+  1289  0268  00F2               	movwf	?_setState
+  1290  0269  3002               	movlw	2
+  1291  026A  01F3               	clrf	?_setState+1
+  1292  026B  2498               	fcall	_setState
+  1293                           
+  1294                           ;MAIN.C: 360: break;
+  1295  026C  2A80               	goto	l5955
+  1296  026D                     l3515:	
+  1297                           ;MAIN.C: 361: case 2:
+  1298                           
+  1299                           
+  1300                           ;MAIN.C: 362: kepTag=1;
+  1301  026D  01DC               	clrf	_kepTag
+  1302  026E  0ADC               	incf	_kepTag,f
+  1303                           
+  1304                           ;MAIN.C: 364: break;
+  1305  026F  2A80               	goto	l5955
+  1306  0270                     l5949:	
+  1307  0270  3002               	movlw	2
+  1308                           
+  1309                           ;MAIN.C: 366: setState(2,0);
+  1310  0271  01F2               	clrf	?_setState
+  1311  0272  01F3               	clrf	?_setState+1
+  1312  0273  2498               	fcall	_setState
+  1313                           
+  1314                           ;MAIN.C: 369: break;
+  1315  0274  2A80               	goto	l5955
+  1316  0275                     l5953:	
+  1317  0275  085D               	movf	_mtState,w
+  1318                           
+  1319                           ; Switch size 1, requested type "space"
+  1320                           ; Number of cases is 3, Range of values is 1 to 6
+  1321                           ; switch strategies available:
+  1322                           ; Name         Instructions Cycles
+  1323                           ; simple_byte           10     6 (average)
+  1324                           ; direct_byte           15     9 (fixed)
+  1325                           ; jumptable            263     9 (fixed)
+  1326                           ;	Chosen strategy is simple_byte
+  1327  0276  3A01               	xorlw	1	; case 1
+  1328  0277  1903               	skipnz
+  1329  0278  2A67               	goto	l5947
+  1330  0279  3A03               	xorlw	3	; case 2
+  1331  027A  1903               	skipnz
+  1332  027B  2A6D               	goto	l3515
+  1333  027C  3A04               	xorlw	4	; case 6
+  1334  027D  1903               	skipnz
+  1335  027E  2A70               	goto	l5949
+  1336  027F  2A80               	goto	l5955
+  1337  0280                     l5955:	
+  1338                           
+  1339                           ;MAIN.C: 372: }
+  1340                           ;MAIN.C: 375: if(mtState==0) RA3 = 1;
+  1341  0280  08DD               	movf	_mtState,f
+  1342  0281  1D03               	skipz
+  1343  0282  2A85               	goto	l3517
+  1344  0283  1585               	bsf	5,3
+  1345  0284  2A86               	goto	l5959
+  1346  0285                     l3517:	
+  1347                           
+  1348                           ;MAIN.C: 376: else RA3 =0;
+  1349  0285  1185               	bcf	5,3
+  1350  0286                     l5959:	
+  1351                           
+  1352                           ;MAIN.C: 393: if(mtState == 2) {
+  1353  0286  085D               	movf	_mtState,w
+  1354  0287  3A02               	xorlw	2
+  1355  0288  1D03               	skipz
+  1356  0289  2A99               	goto	l3519
+  1357                           
+  1358                           ;MAIN.C: 396: if(timeTick%3==0){
+  1359  028A  3003               	movlw	3
+  1360  028B  00F2               	movwf	?___lwmod
+  1361  028C  01F3               	clrf	?___lwmod+1
+  1362  028D  085B               	movf	_timeTick+1,w
+  1363  028E  00F5               	movwf	?___lwmod+3
+  1364  028F  085A               	movf	_timeTick,w
+  1365  0290  00F4               	movwf	?___lwmod+2
+  1366  0291  22D9               	fcall	___lwmod
+  1367  0292  0873               	movf	?___lwmod+1,w
+  1368  0293  0472               	iorwf	?___lwmod,w
+  1369  0294  1D03               	skipz
+  1370  0295  2A9A               	goto	l5965
+  1371                           
+  1372                           ;MAIN.C: 398: RC0=~RC0;
+  1373  0296  3001               	movlw	1
+  1374  0297  0687               	xorwf	7,f
+  1375  0298  2A9A               	goto	l5965
+  1376  0299                     l3519:	
+  1377  0299  1007               	bcf	7,0
+  1378  029A                     l5965:	
+  1379                           
+  1380                           ;MAIN.C: 405: timeTick++;
+  1381  029A  0ADA               	incf	_timeTick,f
+  1382  029B  1903               	skipnz
+  1383  029C  0ADB               	incf	_timeTick+1,f
+  1384  029D  299B               	goto	l5849
+  1385  029E                     __end_of_main:	
+  1386                           
+  1387                           	psect	swtext1
+  1388  04C0                     __pswtext1:	
+  1389  04C0                     S6003:	
+  1390  04C0  2A3D               	ljmp	l3492
+  1391  04C1  29AC               	ljmp	l5859
+  1392  04C2  29AC               	ljmp	l5859
+  1393  04C3  29F3               	ljmp	l5899
+  1394  04C4  2A3D               	ljmp	l3492
+  1395  04C5  2A12               	ljmp	l5915
+  1396  04C6  29CA               	ljmp	l5875
+  1397                           
+  1398                           	psect	text522
+  1399  0341                     __ptext522:	
+  1400 ;; =============== function _main ends ============
+  1401                           
+  1402                           
+  1403 ;; *************** function _id_clear *****************
+  1404 ;; Defined at:
+  1405 ;;		line 174 in file "MAIN.C"
+  1406 ;; Parameters:    Size  Location     Type
+  1407 ;;  idMin           1    wreg     unsigned char 
+  1408 ;;  idMax           1    4[BANK0 ] unsigned char 
+  1409 ;; Auto vars:     Size  Location     Type
+  1410 ;;  idMin           1   10[BANK0 ] unsigned char 
+  1411 ;;  tmp             5    5[BANK0 ] unsigned char [5]
+  1412 ;; Return value:  Size  Location     Type
+  1413 ;;		None               void
+  1414 ;; Registers used:
+  1415 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+  1416 ;; Tracked objects:
+  1417 ;;		On entry : 60/0
+  1418 ;;		On exit  : 60/0
+  1419 ;;		Unchanged: 0/0
+  1420 ;; Data sizes:     COMMON   BANK0   BANK1
+  1421 ;;      Params:         0       1       0
+  1422 ;;      Locals:         0       6       0
+  1423 ;;      Temps:          0       0       0
+  1424 ;;      Totals:         0       7       0
+  1425 ;;Total ram usage:        7 bytes
+  1426 ;; Hardware stack levels used:    1
+  1427 ;; Hardware stack levels required when called:    4
+  1428 ;; This function calls:
+  1429 ;;		_id_replate
+  1430 ;; This function is called by:
+  1431 ;;		_main
+  1432 ;; This function uses a non-reentrant model
+  1433 ;;
+  1434  0341                     _id_clear:	
+  1435                           
+  1436                           ; Regs used in _id_clear: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+  1437                           ;id_clear@idMin stored from wreg
+  1438  0341  00C8               	movwf	id_clear@idMin
+  1439                           
+  1440                           ;MAIN.C: 175: unsigned char tmp[5]={0xff,0xff,0xff,0xff,0xff};
+  1441  0342  3043               	movlw	id_clear@tmp& (0+255)
+  1442  0343  0084               	movwf	4
+  1443  0344  0820               	movf	id_clear@F962,w
+  1444  0345  1383               	bcf	3,7	;select IRP bank0
+  1445  0346  0080               	movwf	0
+  1446  0347  0A84               	incf	4,f
+  1447  0348  0821               	movf	id_clear@F962+1,w
+  1448  0349  0080               	movwf	0
+  1449  034A  0A84               	incf	4,f
+  1450  034B  0822               	movf	id_clear@F962+2,w
+  1451  034C  0080               	movwf	0
+  1452  034D  0A84               	incf	4,f
+  1453  034E  0823               	movf	id_clear@F962+3,w
+  1454  034F  0080               	movwf	0
+  1455  0350  0A84               	incf	4,f
+  1456  0351  0824               	movf	id_clear@F962+4,w
+  1457  0352  0080               	movwf	0
+  1458  0353                     l5813:	
+  1459  0353  0848               	movf	id_clear@idMin,w
+  1460  0354  0242               	subwf	id_clear@idMax,w
+  1461  0355  1C03               	btfss	3,0
+  1462  0356  0008               	return
+  1463                           
+  1464                           ;MAIN.C: 177: id_replate(idMin,tmp,buffTag);
+  1465  0357  3043               	movlw	id_clear@tmp& (0+255)
+  1466  0358  00BE               	movwf	?_id_replate
+  1467  0359  3025               	movlw	_buffTag& (0+255)
+  1468  035A  00BF               	movwf	?_id_replate+1
+  1469  035B  0848               	movf	id_clear@idMin,w
+  1470  035C  229E               	fcall	_id_replate
+  1471  035D  1283               	bcf	3,5	;RP0=0, select bank0
+  1472  035E  1303               	bcf	3,6	;RP1=0, select bank0
+  1473  035F  0AC8               	incf	id_clear@idMin,f
+  1474  0360  2B53               	goto	l5813
+  1475  0361                     __end_of_id_clear:	
+  1476                           
+  1477                           	psect	text523
+  1478  029E                     __ptext523:	
+  1479 ;; =============== function _id_clear ends ============
+  1480                           
+  1481                           
+  1482 ;; *************** function _id_replate *****************
+  1483 ;; Defined at:
+  1484 ;;		line 160 in file "MAIN.C"
+  1485 ;; Parameters:    Size  Location     Type
+  1486 ;;  id              1    wreg     unsigned char 
+  1487 ;;  Cont            1    0[BANK0 ] PTR unsigned char 
+  1488 ;;		 -> id_clear@tmp(5), keyID(5), 
+  1489 ;;  buff            1    1[BANK0 ] PTR unsigned char 
+  1490 ;;		 -> buffTag(25), 
+  1491 ;; Auto vars:     Size  Location     Type
+  1492 ;;  id              1   11[COMMON] unsigned char 
+  1493 ;; Return value:  Size  Location     Type
+  1494 ;;		None               void
+  1495 ;; Registers used:
+  1496 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+  1497 ;; Tracked objects:
+  1498 ;;		On entry : 60/0
+  1499 ;;		On exit  : 0/0
+  1500 ;;		Unchanged: 0/0
+  1501 ;; Data sizes:     COMMON   BANK0   BANK1
+  1502 ;;      Params:         0       2       0
+  1503 ;;      Locals:         1       0       0
+  1504 ;;      Temps:          0       2       0
+  1505 ;;      Totals:         1       4       0
+  1506 ;;Total ram usage:        5 bytes
+  1507 ;; Hardware stack levels used:    1
+  1508 ;; Hardware stack levels required when called:    3
+  1509 ;; This function calls:
+  1510 ;;		___bmul
+  1511 ;;		_eepromWriteBlock
+  1512 ;; This function is called by:
+  1513 ;;		_id_clear
+  1514 ;;		_main
+  1515 ;; This function uses a non-reentrant model
+  1516 ;;
+  1517  029E                     _id_replate:	
+  1518                           
+  1519                           ; Regs used in _id_replate: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+  1520                           ;id_replate@id stored from wreg
+  1521  029E  00FB               	movwf	id_replate@id
+  1522                           
+  1523                           ;MAIN.C: 161: id=(id-1)*5;
+  1524  029F  3005               	movlw	5
+  1525  02A0  00F2               	movwf	?___bmul
+  1526  02A1  087B               	movf	id_replate@id,w
+  1527  02A2  3EFF               	addlw	255
+  1528  02A3  247C               	fcall	___bmul
+  1529  02A4  00FB               	movwf	id_replate@id
+  1530                           
+  1531                           ;MAIN.C: 162: {
+  1532                           ;MAIN.C: 163: {
+  1533                           ;MAIN.C: 164: *(buff+id) = *Cont;
+  1534  02A5  083E               	movf	id_replate@Cont,w
+  1535  02A6  0084               	movwf	4
+  1536  02A7  1383               	bcf	3,7	;select IRP bank0
+  1537  02A8  0800               	movf	0,w
+  1538  02A9  00C0               	movwf	??_id_replate
+  1539  02AA  087B               	movf	id_replate@id,w
+  1540  02AB  073F               	addwf	id_replate@buff,w
+  1541  02AC  00C1               	movwf	??_id_replate+1
+  1542  02AD  0084               	movwf	4
+  1543  02AE  0840               	movf	??_id_replate,w
+  1544  02AF  0080               	movwf	0
+  1545                           
+  1546                           ;MAIN.C: 165: *(buff+1+id) = *(Cont+1);
+  1547  02B0  083E               	movf	id_replate@Cont,w
+  1548  02B1  3E01               	addlw	1
+  1549  02B2  22D2               	fcall	PL3	;call to abstracted procedure
+  1550  02B3  3E01               	addlw	1
+  1551  02B4  0084               	movwf	4
+  1552  02B5  0840               	movf	??_id_replate,w
+  1553  02B6  0080               	movwf	0
+  1554                           
+  1555                           ;MAIN.C: 166: *(buff+2+id) = *(Cont+2);
+  1556  02B7  083E               	movf	id_replate@Cont,w
+  1557  02B8  3E02               	addlw	2
+  1558  02B9  22D2               	fcall	PL3	;call to abstracted procedure
+  1559  02BA  3E02               	addlw	2
+  1560  02BB  0084               	movwf	4
+  1561  02BC  0840               	movf	??_id_replate,w
+  1562  02BD  0080               	movwf	0
+  1563                           
+  1564                           ;MAIN.C: 167: *(buff+3+id) = *(Cont+3);
+  1565  02BE  083E               	movf	id_replate@Cont,w
+  1566  02BF  3E03               	addlw	3
+  1567  02C0  22D2               	fcall	PL3	;call to abstracted procedure
+  1568  02C1  3E03               	addlw	3
+  1569  02C2  0084               	movwf	4
+  1570  02C3  0840               	movf	??_id_replate,w
+  1571  02C4  0080               	movwf	0
+  1572                           
+  1573                           ;MAIN.C: 168: *(buff+4+id) = *(Cont+4);
+  1574  02C5  083E               	movf	id_replate@Cont,w
+  1575  02C6  3E04               	addlw	4
+  1576  02C7  22D2               	fcall	PL3	;call to abstracted procedure
+  1577  02C8  3E04               	addlw	4
+  1578  02C9  0084               	movwf	4
+  1579  02CA  0840               	movf	??_id_replate,w
+  1580  02CB  0080               	movwf	0
+  1581                           
+  1582                           ;MAIN.C: 169: }
+  1583                           ;MAIN.C: 170: }
+  1584                           ;MAIN.C: 172: eepromWriteBlock(0x06,buffTag,25);
+  1585  02CC  3025               	movlw	_buffTag& (0+255)
+  1586  02CD  00F6               	movwf	?_eepromWriteBlock
+  1587  02CE  3019               	movlw	25
+  1588  02CF  00F7               	movwf	?_eepromWriteBlock+1
+  1589  02D0  3006               	movlw	6
+  1590  02D1  2C19               	ljmp	_eepromWriteBlock
+  1591  02D2                     __end_of_id_replate:	
+  1592  02D2                     PL3:	
+  1593  02D2  0084               	movwf	4
+  1594  02D3  0800               	movf	0,w
+  1595  02D4  00C0               	movwf	??_id_replate
+  1596  02D5  087B               	movf	id_replate@id,w
+  1597  02D6  073F               	addwf	id_replate@buff,w
+  1598  02D7  00C1               	movwf	??_id_replate+1
+  1599  02D8  0008               	return
+  1600                           
+  1601                           	psect	text524
+  1602  0402                     __ptext524:	
+  1603 ;; =============== function _id_replate ends ============
+  1604                           
+  1605                           
+  1606 ;; *************** function _beep2 *****************
+  1607 ;; Defined at:
+  1608 ;;		line 180 in file "MAIN.C"
+  1609 ;; Parameters:    Size  Location     Type
+  1610 ;;  sel             1    wreg     unsigned char 
+  1611 ;;  rep             1    5[COMMON] unsigned char 
+  1612 ;; Auto vars:     Size  Location     Type
+  1613 ;;  sel             1    6[COMMON] unsigned char 
+  1614 ;; Return value:  Size  Location     Type
+  1615 ;;		None               void
+  1616 ;; Registers used:
+  1617 ;;		wreg, status,2, status,0, pclath, cstack
+  1618 ;; Tracked objects:
+  1619 ;;		On entry : 60/0
+  1620 ;;		On exit  : 0/0
+  1621 ;;		Unchanged: 0/0
+  1622 ;; Data sizes:     COMMON   BANK0   BANK1
+  1623 ;;      Params:         1       0       0
+  1624 ;;      Locals:         1       0       0
+  1625 ;;      Temps:          0       0       0
+  1626 ;;      Totals:         2       0       0
+  1627 ;;Total ram usage:        2 bytes
+  1628 ;; Hardware stack levels used:    1
+  1629 ;; Hardware stack levels required when called:    2
+  1630 ;; This function calls:
+  1631 ;;		_delay_x10ms
+  1632 ;; This function is called by:
+  1633 ;;		_main
+  1634 ;; This function uses a non-reentrant model
+  1635 ;;
+  1636  0402                     _beep2:	
+  1637                           
+  1638                           ; Regs used in _beep2: [wreg+status,2+status,0+pclath+cstack]
+  1639                           ;beep2@sel stored from wreg
+  1640  0402  00F6               	movwf	beep2@sel
+  1641  0403                     l5791:	
+  1642                           ;MAIN.C: 181: while(rep--){
+  1643                           
+  1644  0403  03F5               	decf	beep2@rep,f
+  1645  0404  0875               	movf	beep2@rep,w
+  1646  0405  3AFF               	xorlw	255
+  1647  0406  1903               	btfsc	3,2
+  1648  0407  0008               	return
+  1649                           
+  1650                           ;MAIN.C: 182: RC0 =1;if(sel)RA3 = 1;
+  1651  0408  1283               	bcf	3,5	;RP0=0, select bank0
+  1652  0409  1303               	bcf	3,6	;RP1=0, select bank0
+  1653  040A  1407               	bsf	7,0
+  1654  040B  0876               	movf	beep2@sel,w
+  1655  040C  1D03               	skipz
+  1656  040D  1585               	bsf	5,3
+  1657                           
+  1658                           ;MAIN.C: 183: delay_x10ms(20);
+  1659  040E  3014               	movlw	20
+  1660  040F  244E               	fcall	_delay_x10ms
+  1661                           
+  1662                           ;MAIN.C: 184: RC0 =0;if(sel)RA3 = 0;
+  1663  0410  1283               	bcf	3,5	;RP0=0, select bank0
+  1664  0411  1303               	bcf	3,6	;RP1=0, select bank0
+  1665  0412  1007               	bcf	7,0
+  1666  0413  0876               	movf	beep2@sel,w
+  1667  0414  1D03               	skipz
+  1668  0415  1185               	bcf	5,3
+  1669                           
+  1670                           ;MAIN.C: 185: delay_x10ms(20);
+  1671  0416  3014               	movlw	20
+  1672  0417  244E               	fcall	_delay_x10ms
+  1673  0418  2C03               	goto	l5791
+  1674  0419                     __end_of_beep2:	
+  1675                           
+  1676                           	psect	text525
+  1677  0419                     __ptext525:	
+  1678 ;; =============== function _beep2 ends ============
+  1679                           
+  1680                           
+  1681 ;; *************** function _eepromWriteBlock *****************
+  1682 ;; Defined at:
+  1683 ;;		line 43 in file "ms82_eeprom.c"
+  1684 ;; Parameters:    Size  Location     Type
+  1685 ;;  addStart        1    wreg     unsigned char 
+  1686 ;;  buff            1    6[COMMON] PTR unsigned char 
+  1687 ;;		 -> buffTag(25), 
+  1688 ;;  len             1    7[COMMON] unsigned char 
+  1689 ;; Auto vars:     Size  Location     Type
+  1690 ;;  addStart        1    9[COMMON] unsigned char 
+  1691 ;;  i               1   10[COMMON] unsigned char 
+  1692 ;; Return value:  Size  Location     Type
+  1693 ;;		None               void
+  1694 ;; Registers used:
+  1695 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+  1696 ;; Tracked objects:
+  1697 ;;		On entry : 160/0
+  1698 ;;		On exit  : 0/0
+  1699 ;;		Unchanged: 0/0
+  1700 ;; Data sizes:     COMMON   BANK0   BANK1
+  1701 ;;      Params:         2       0       0
+  1702 ;;      Locals:         2       0       0
+  1703 ;;      Temps:          1       0       0
+  1704 ;;      Totals:         5       0       0
+  1705 ;;Total ram usage:        5 bytes
+  1706 ;; Hardware stack levels used:    1
+  1707 ;; Hardware stack levels required when called:    2
+  1708 ;; This function calls:
+  1709 ;;		_eepromWriteByte
+  1710 ;; This function is called by:
+  1711 ;;		_id_replate
+  1712 ;; This function uses a non-reentrant model
+  1713 ;;
+  1714  0419                     _eepromWriteBlock:	
+  1715                           
+  1716                           ; Regs used in _eepromWriteBlock: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+  1717                           ;eepromWriteBlock@addStart stored from wreg
+  1718  0419  00F9               	movwf	eepromWriteBlock@addStart
+  1719                           
+  1720                           ;ms82_eeprom.c: 44: unsigned char i;
+  1721                           ;ms82_eeprom.c: 45: for(i=0;i<len;i++){
+  1722  041A  01FA               	clrf	eepromWriteBlock@i
+  1723  041B                     l5773:	
+  1724  041B  0877               	movf	eepromWriteBlock@len,w
+  1725  041C  027A               	subwf	eepromWriteBlock@i,w
+  1726  041D  1803               	btfsc	3,0
+  1727  041E  0008               	return
+  1728                           
+  1729                           ;ms82_eeprom.c: 46: eepromWriteByte(addStart+i,buff[i]);
+  1730  041F  087A               	movf	eepromWriteBlock@i,w
+  1731  0420  0776               	addwf	eepromWriteBlock@buff,w
+  1732  0421  00F8               	movwf	??_eepromWriteBlock
+  1733  0422  0084               	movwf	4
+  1734  0423  1383               	bcf	3,7	;select IRP bank0
+  1735  0424  0800               	movf	0,w
+  1736  0425  00F2               	movwf	?_eepromWriteByte
+  1737  0426  087A               	movf	eepromWriteBlock@i,w
+  1738  0427  0779               	addwf	eepromWriteBlock@addStart,w
+  1739  0428  22FD               	fcall	_eepromWriteByte
+  1740  0429  0AFA               	incf	eepromWriteBlock@i,f
+  1741  042A  2C1B               	goto	l5773
+  1742  042B                     __end_of_eepromWriteBlock:	
+  1743                           
+  1744                           	psect	text526
+  1745  03B9                     __ptext526:	
+  1746 ;; =============== function _eepromWriteBlock ends ============
+  1747                           
+  1748                           
+  1749 ;; *************** function _id_search *****************
+  1750 ;; Defined at:
+  1751 ;;		line 152 in file "MAIN.C"
+  1752 ;; Parameters:    Size  Location     Type
+  1753 ;;  id_input        1    wreg     PTR unsigned char 
+  1754 ;;		 -> keyID(5), 
+  1755 ;;  buff            1   10[COMMON] PTR unsigned char 
+  1756 ;;		 -> buffTag(25), 
+  1757 ;; Auto vars:     Size  Location     Type
+  1758 ;;  id_input        1    0[BANK0 ] PTR unsigned char 
+  1759 ;;		 -> keyID(5), 
+  1760 ;;  i               1    1[BANK0 ] unsigned char 
+  1761 ;; Return value:  Size  Location     Type
+  1762 ;;                  1    wreg      unsigned char 
+  1763 ;; Registers used:
+  1764 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+  1765 ;; Tracked objects:
+  1766 ;;		On entry : 60/0
+  1767 ;;		On exit  : 60/0
+  1768 ;;		Unchanged: FFE9F/0
+  1769 ;; Data sizes:     COMMON   BANK0   BANK1
+  1770 ;;      Params:         1       0       0
+  1771 ;;      Locals:         0       2       0
+  1772 ;;      Temps:          1       0       0
+  1773 ;;      Totals:         2       2       0
+  1774 ;;Total ram usage:        4 bytes
+  1775 ;; Hardware stack levels used:    1
+  1776 ;; Hardware stack levels required when called:    2
+  1777 ;; This function calls:
+  1778 ;;		_comArr
+  1779 ;;		___lbdiv
+  1780 ;; This function is called by:
+  1781 ;;		_main
+  1782 ;; This function uses a non-reentrant model
+  1783 ;;
+  1784  03B9                     _id_search:	
+  1785                           
+  1786                           ; Regs used in _id_search: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+  1787                           ;id_search@id_input stored from wreg
+  1788  03B9  00BE               	movwf	id_search@id_input
+  1789                           
+  1790                           ;MAIN.C: 153: unsigned char i;
+  1791                           ;MAIN.C: 154: for(i=0;i<21;i+=5){
+  1792  03BA  01BF               	clrf	id_search@i
+  1793  03BB                     l5753:	
+  1794                           
+  1795                           ;MAIN.C: 155: if(comArr(id_input,buff+i,5,5))
+  1796  03BB  083F               	movf	id_search@i,w
+  1797  03BC  077A               	addwf	id_search@buff,w
+  1798  03BD  00F2               	movwf	?_comArr
+  1799  03BE  3005               	movlw	5
+  1800  03BF  00F3               	movwf	?_comArr+1
+  1801  03C0  00F4               	movwf	?_comArr+2
+  1802  03C1  083E               	movf	id_search@id_input,w
+  1803  03C2  2361               	fcall	_comArr
+  1804  03C3  3A00               	xorlw	0
+  1805                           
+  1806                           ;MAIN.C: 156: return i/5 +1;
+  1807  03C4  3005               	movlw	5
+  1808  03C5  1903               	skipnz
+  1809  03C6  2BCD               	goto	L1
+  1810  03C7  00F2               	movwf	?___lbdiv
+  1811  03C8  083F               	movf	id_search@i,w
+  1812  03C9  239E               	fcall	___lbdiv
+  1813  03CA  00FB               	movwf	??_id_search
+  1814  03CB  0A7B               	incf	??_id_search,w
+  1815  03CC  0008               	return
+  1816  03CD                     L1:	
+  1817  03CD  07BF               	addwf	id_search@i,f
+  1818  03CE  3015               	movlw	21
+  1819  03CF  023F               	subwf	id_search@i,w
+  1820  03D0  1803               	btfsc	3,0
+  1821                           
+  1822                           ;MAIN.C: 157: }
+  1823                           ;MAIN.C: 158: return 255;
+  1824  03D1  34FF               	retlw	255
+  1825  03D2  2BBB               	goto	l5753
+  1826  03D3                     __end_of_id_search:	
+  1827                           
+  1828                           	psect	text527
+  1829  044E                     __ptext527:	
+  1830 ;; =============== function _id_search ends ============
+  1831                           
+  1832                           
+  1833 ;; *************** function _delay_x10ms *****************
+  1834 ;; Defined at:
+  1835 ;;		line 54 in file "MAIN.C"
+  1836 ;; Parameters:    Size  Location     Type
+  1837 ;;  t               1    wreg     unsigned char 
+  1838 ;; Auto vars:     Size  Location     Type
+  1839 ;;  t               1    4[COMMON] unsigned char 
+  1840 ;; Return value:  Size  Location     Type
+  1841 ;;		None               void
+  1842 ;; Registers used:
+  1843 ;;		wreg, status,2, status,0
+  1844 ;; Tracked objects:
+  1845 ;;		On entry : 60/0
+  1846 ;;		On exit  : 0/0
+  1847 ;;		Unchanged: 0/0
+  1848 ;; Data sizes:     COMMON   BANK0   BANK1
+  1849 ;;      Params:         0       0       0
+  1850 ;;      Locals:         1       0       0
+  1851 ;;      Temps:          2       0       0
+  1852 ;;      Totals:         3       0       0
+  1853 ;;Total ram usage:        3 bytes
+  1854 ;; Hardware stack levels used:    1
+  1855 ;; Hardware stack levels required when called:    1
+  1856 ;; This function calls:
+  1857 ;;		Nothing
+  1858 ;; This function is called by:
+  1859 ;;		_beep2
+  1860 ;; This function uses a non-reentrant model
+  1861 ;;
+  1862  044E                     _delay_x10ms:	
+  1863                           
+  1864                           ; Regs used in _delay_x10ms: [wreg+status,2+status,0]
+  1865                           ;delay_x10ms@t stored from wreg
+  1866  044E  00F4               	movwf	delay_x10ms@t
+  1867  044F                     l5745:	
+  1868                           ;MAIN.C: 55: while(t--)
+  1869                           
+  1870  044F  03F4               	decf	delay_x10ms@t,f
+  1871  0450  0874               	movf	delay_x10ms@t,w
+  1872  0451  3AFF               	xorlw	255
+  1873  0452  1903               	btfsc	3,2
+  1874  0453  0008               	return
+  1875                           
+  1876                           ;MAIN.C: 56: _delay((unsigned long)((10)*(8000000/4000.0)));
+  1877  0454  301A               	movlw	26
+  1878  0455  00F3               	movwf	??_delay_x10ms+1
+  1879  0456  30F8               	movlw	248
+  1880  0457  00F2               	movwf	??_delay_x10ms
+  1881  0458                     u1947:	
+  1882  0458  0BF2               	decfsz	??_delay_x10ms,f
+  1883  0459  2C58               	goto	u1947
+  1884  045A  0BF3               	decfsz	??_delay_x10ms+1,f
+  1885  045B  2C58               	goto	u1947
+  1886  045C  0064               	clrwdt
+  1887  045D  2C4F               	goto	l5745
+  1888  045E                     __end_of_delay_x10ms:	
+  1889                           
+  1890                           	psect	text528
+  1891  000B                     __ptext528:	
+  1892 ;; =============== function _delay_x10ms ends ============
+  1893                           
+  1894                           
+  1895 ;; *************** function _get_RFID *****************
+  1896 ;; Defined at:
+  1897 ;;		line 21 in file "rfid125.c"
+  1898 ;; Parameters:    Size  Location     Type
+  1899 ;;		None
+  1900 ;; Auto vars:     Size  Location     Type
+  1901 ;;  RF_serial_55   11    0[BANK0 ] unsigned char [11]
+  1902 ;;  timeOutVal      2   17[BANK0 ] unsigned int 
+  1903 ;;  ii              1   19[BANK0 ] unsigned char 
+  1904 ;;  flag_RFID_la    1   16[BANK0 ] unsigned char 
+  1905 ;;  i               1   15[BANK0 ] unsigned char 
+  1906 ;;  j               1   14[BANK0 ] unsigned char 
+  1907 ;;  even_row        1   13[BANK0 ] unsigned char 
+  1908 ;;  even_col        1   12[BANK0 ] unsigned char 
+  1909 ;;  flag_RFID_sy    1   11[BANK0 ] unsigned char 
+  1910 ;; Return value:  Size  Location     Type
+  1911 ;;                  1    wreg      unsigned char 
+  1912 ;; Registers used:
+  1913 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+  1914 ;; Tracked objects:
+  1915 ;;		On entry : 60/0
+  1916 ;;		On exit  : 60/0
+  1917 ;;		Unchanged: FFE9F/0
+  1918 ;; Data sizes:     COMMON   BANK0   BANK1
+  1919 ;;      Params:         0       0       0
+  1920 ;;      Locals:         0      20       0
+  1921 ;;      Temps:          1       0       0
+  1922 ;;      Totals:         1      20       0
+  1923 ;;Total ram usage:       21 bytes
+  1924 ;; Hardware stack levels used:    1
+  1925 ;; Hardware stack levels required when called:    2
+  1926 ;; This function calls:
+  1927 ;;		_timerOut
+  1928 ;;		___lbdiv
+  1929 ;; This function is called by:
+  1930 ;;		_main
+  1931 ;; This function uses a non-reentrant model
+  1932 ;;
+  1933  000B                     _get_RFID:	
+  1934  000B  3010               	movlw	16
+  1935                           
+  1936                           ;rfid125.c: 23: unsigned char RF_serial_55bits[11];
+  1937                           ;rfid125.c: 24: unsigned int timeOutVal;
+  1938                           ;rfid125.c: 25: unsigned char i,ii,j;
+  1939                           ;rfid125.c: 26: unsigned char flag_RFID_syn, flag_RFID_last;
+  1940                           ;rfid125.c: 27: unsigned char even_row, even_col;
+  1941                           ;rfid125.c: 30: flag_RFID_syn = 0;
+  1942                           
+  1943                           ; Regs used in _get_RFID: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+  1944  000C  01C9               	clrf	get_RFID@flag_RFID_syn
+  1945                           
+  1946                           ;rfid125.c: 33: i=16;
+  1947  000D  00CD               	movwf	get_RFID@i
+  1948  000E                     l5523:	
+  1949                           
+  1950                           ;rfid125.c: 35: {
+  1951                           ;rfid125.c: 36: timeOutVal=timerOut(1,600);
+  1952  000E  3058               	movlw	88
+  1953  000F  00F2               	movwf	?_timerOut
+  1954  0010  3002               	movlw	2
+  1955  0011  00F3               	movwf	?_timerOut+1
+  1956  0012  3001               	movlw	1
+  1957  0013  2320               	fcall	_timerOut
+  1958                           
+  1959                           ;rfid125.c: 37: if(timeOutVal==0) return 0;
+  1960  0014  2141               	fcall	PL2	;call to abstracted procedure
+  1961  0015  1903               	btfsc	3,2
+  1962  0016  3400               	retlw	0
+  1963                           
+  1964                           ;rfid125.c: 39: timeOutVal=timerOut(0,600);
+  1965  0017  3058               	movlw	88
+  1966  0018  2154               	fcall	PL6	;call to abstracted procedure
+  1967  0019  2320               	fcall	_timerOut
+  1968                           
+  1969                           ;rfid125.c: 40: if(timeOutVal==0) return 0;
+  1970  001A  2141               	fcall	PL2	;call to abstracted procedure
+  1971  001B  1903               	btfsc	3,2
+  1972  001C  3400               	retlw	0
+  1973  001D  3001               	movlw	1
+  1974                           
+  1975                           ;rfid125.c: 42: i--;
+  1976  001E  03CD               	decf	get_RFID@i,f
+  1977                           
+  1978                           ;rfid125.c: 43: }
+  1979                           ;rfid125.c: 44: while(timeOutVal<290 && i>0);
+  1980  001F  0250               	subwf	get_RFID@timeOutVal+1,w
+  1981  0020  3022               	movlw	34
+  1982  0021  1903               	skipnz
+  1983  0022  024F               	subwf	get_RFID@timeOutVal,w
+  1984  0023  1803               	skipnc
+  1985  0024  2828               	goto	l2051
+  1986  0025  08CD               	movf	get_RFID@i,f
+  1987  0026  1D03               	skipz
+  1988  0027  280E               	goto	l5523
+  1989  0028                     l2051:	
+  1990                           
+  1991                           ;rfid125.c: 45: flag_RFID_last = 1;
+  1992  0028  01CE               	clrf	get_RFID@flag_RFID_last
+  1993  0029  0ACE               	incf	get_RFID@flag_RFID_last,f
+  1994                           
+  1995                           ;rfid125.c: 46: i = 0;
+  1996  002A  01CD               	clrf	get_RFID@i
+  1997  002B                     l5611:	
+  1998                           ;rfid125.c: 47: while(i<64)
+  1999                           
+  2000  002B  3040               	movlw	64
+  2001  002C  024D               	subwf	get_RFID@i,w
+  2002  002D  1803               	btfsc	3,0
+  2003  002E  2884               	goto	l5613
+  2004                           
+  2005                           ;rfid125.c: 48: {
+  2006                           ;rfid125.c: 49: for(ii=0;ii<9;ii++)
+  2007  002F  01D1               	clrf	get_RFID@ii
+  2008  0030                     l5553:	
+  2009                           
+  2010                           ;rfid125.c: 50: {
+  2011                           ;rfid125.c: 51: timeOutVal=timerOut(flag_RFID_last,600);
+  2012  0030  214E               	fcall	PL5	;call to abstracted procedure
+  2013  0031  2320               	fcall	_timerOut
+  2014                           
+  2015                           ;rfid125.c: 52: if(timeOutVal==0) return 0;
+  2016  0032  2141               	fcall	PL2	;call to abstracted procedure
+  2017  0033  1903               	btfsc	3,2
+  2018  0034  3400               	retlw	0
+  2019                           
+  2020                           ;rfid125.c: 54: if(0==flag_RFID_last && timeOutVal<=290 ||
+  2021                           ;rfid125.c: 55: 1==flag_RFID_last && timeOutVal>290)
+  2022  0035  08CE               	movf	get_RFID@flag_RFID_last,f
+  2023  0036  1D03               	skipz
+  2024  0037  283F               	goto	l5565
+  2025  0038  3001               	movlw	1
+  2026  0039  0250               	subwf	get_RFID@timeOutVal+1,w
+  2027  003A  3023               	movlw	35
+  2028  003B  1903               	skipnz
+  2029  003C  024F               	subwf	get_RFID@timeOutVal,w
+  2030  003D  1C03               	skipc
+  2031  003E  2848               	goto	l5569
+  2032  003F                     l5565:	
+  2033  003F  0B4E               	decfsz	get_RFID@flag_RFID_last,w
+  2034  0040  2856               	goto	l5583
+  2035  0041  3001               	movlw	1
+  2036  0042  0250               	subwf	get_RFID@timeOutVal+1,w
+  2037  0043  3023               	movlw	35
+  2038  0044  1903               	skipnz
+  2039  0045  024F               	subwf	get_RFID@timeOutVal,w
+  2040  0046  1C03               	skipc
+  2041  0047  2856               	goto	l5583
+  2042  0048                     l5569:	
+  2043                           
+  2044                           ;rfid125.c: 56: {
+  2045                           ;rfid125.c: 57: if(!flag_RFID_last)
+  2046  0048  08CE               	movf	get_RFID@flag_RFID_last,f
+  2047  0049  1D03               	skipz
+  2048  004A  2853               	goto	l5579
+  2049                           
+  2050                           ;rfid125.c: 58: {
+  2051                           ;rfid125.c: 59: timeOutVal=timerOut(1,290);
+  2052  004B  3022               	movlw	34
+  2053  004C  00F2               	movwf	?_timerOut
+  2054  004D  3001               	movlw	1
+  2055  004E  00F3               	movwf	?_timerOut+1
+  2056  004F  2320               	fcall	_timerOut
+  2057                           
+  2058                           ;rfid125.c: 60: if(timeOutVal==0) return 0;
+  2059  0050  2141               	fcall	PL2	;call to abstracted procedure
+  2060  0051  1903               	btfsc	3,2
+  2061  0052  3400               	retlw	0
+  2062  0053                     l5579:	
+  2063                           
+  2064                           ;rfid125.c: 61: }
+  2065                           ;rfid125.c: 62: flag_RFID_last = 0;
+  2066  0053  01CE               	clrf	get_RFID@flag_RFID_last
+  2067                           
+  2068                           ;rfid125.c: 63: i++;
+  2069  0054  0ACD               	incf	get_RFID@i,f
+  2070                           
+  2071                           ;rfid125.c: 64: }
+  2072  0055  2879               	goto	l5603
+  2073  0056                     l5583:	
+  2074                           
+  2075                           ;rfid125.c: 65: else
+  2076                           ;rfid125.c: 66: if(0==flag_RFID_last && timeOutVal>290 ||
+  2077                           ;rfid125.c: 67: 1==flag_RFID_last && timeOutVal<=290)
+  2078  0056  08CE               	movf	get_RFID@flag_RFID_last,f
+  2079  0057  1D03               	skipz
+  2080  0058  2860               	goto	l5587
+  2081  0059  3001               	movlw	1
+  2082  005A  0250               	subwf	get_RFID@timeOutVal+1,w
+  2083  005B  3023               	movlw	35
+  2084  005C  1903               	skipnz
+  2085  005D  024F               	subwf	get_RFID@timeOutVal,w
+  2086  005E  1803               	skipnc
+  2087  005F  2869               	goto	l5591
+  2088  0060                     l5587:	
+  2089  0060  0B4E               	decfsz	get_RFID@flag_RFID_last,w
+  2090  0061  2879               	goto	l5603
+  2091  0062  3001               	movlw	1
+  2092  0063  0250               	subwf	get_RFID@timeOutVal+1,w
+  2093  0064  3023               	movlw	35
+  2094  0065  1903               	skipnz
+  2095  0066  024F               	subwf	get_RFID@timeOutVal,w
+  2096  0067  1803               	skipnc
+  2097  0068  2879               	goto	l5603
+  2098  0069                     l5591:	
+  2099                           
+  2100                           ;rfid125.c: 68: {
+  2101                           ;rfid125.c: 69: if(flag_RFID_last)
+  2102  0069  084E               	movf	get_RFID@flag_RFID_last,w
+  2103  006A  1903               	btfsc	3,2
+  2104  006B  2875               	goto	l2070
+  2105                           
+  2106                           ;rfid125.c: 70: {
+  2107                           ;rfid125.c: 71: timeOutVal=timerOut(0,290);
+  2108  006C  3022               	movlw	34
+  2109  006D  00F2               	movwf	?_timerOut
+  2110  006E  3001               	movlw	1
+  2111  006F  00F3               	movwf	?_timerOut+1
+  2112  0070  3000               	movlw	0
+  2113  0071  2320               	fcall	_timerOut
+  2114                           
+  2115                           ;rfid125.c: 72: if(timeOutVal==0) return 0;
+  2116  0072  2141               	fcall	PL2	;call to abstracted procedure
+  2117  0073  1903               	btfsc	3,2
+  2118  0074  3400               	retlw	0
+  2119  0075                     l2070:	
+  2120                           
+  2121                           ;rfid125.c: 73: }
+  2122                           ;rfid125.c: 74: flag_RFID_last = 1;
+  2123  0075  01CE               	clrf	get_RFID@flag_RFID_last
+  2124  0076  0ACE               	incf	get_RFID@flag_RFID_last,f
+  2125                           
+  2126                           ;rfid125.c: 75: i++;
+  2127  0077  0ACD               	incf	get_RFID@i,f
+  2128                           
+  2129                           ;rfid125.c: 77: break;
+  2130  0078  287E               	goto	l5607
+  2131  0079                     l5603:	
+  2132  0079  3009               	movlw	9
+  2133  007A  0AD1               	incf	get_RFID@ii,f
+  2134  007B  0251               	subwf	get_RFID@ii,w
+  2135  007C  1C03               	skipc
+  2136  007D  2830               	goto	l5553
+  2137  007E                     l5607:	
+  2138                           
+  2139                           ;rfid125.c: 78: }
+  2140                           ;rfid125.c: 80: }
+  2141                           ;rfid125.c: 81: if(9==ii)
+  2142  007E  0851               	movf	get_RFID@ii,w
+  2143  007F  3A09               	xorlw	9
+  2144  0080  1D03               	skipz
+  2145  0081  282B               	goto	l5611
+  2146                           
+  2147                           ;rfid125.c: 82: {
+  2148                           ;rfid125.c: 83: flag_RFID_syn = 1;
+  2149  0082  01C9               	clrf	get_RFID@flag_RFID_syn
+  2150  0083  0AC9               	incf	get_RFID@flag_RFID_syn,f
+  2151  0084                     l5613:	
+  2152                           ;rfid125.c: 84: break;
+  2153                           
+  2154                           
+  2155                           ;rfid125.c: 85: }
+  2156                           ;rfid125.c: 86: }
+  2157                           ;rfid125.c: 88: if(!flag_RFID_syn)
+  2158  0084  08C9               	movf	get_RFID@flag_RFID_syn,f
+  2159  0085  1903               	btfsc	3,2
+  2160  0086  3400               	retlw	0
+  2161                           
+  2162                           ;rfid125.c: 91: }
+  2163                           ;rfid125.c: 92: for(ii=0;ii<55;ii++)
+  2164  0087  01D1               	clrf	get_RFID@ii
+  2165  0088                     l5625:	
+  2166                           
+  2167                           ;rfid125.c: 93: {
+  2168                           ;rfid125.c: 94: i = ii/5;
+  2169  0088  3005               	movlw	5
+  2170  0089  00F2               	movwf	?___lbdiv
+  2171  008A  0851               	movf	get_RFID@ii,w
+  2172  008B  239E               	fcall	___lbdiv
+  2173  008C  00CD               	movwf	get_RFID@i
+  2174                           
+  2175                           ;rfid125.c: 95: timeOutVal=timerOut(flag_RFID_last,600);
+  2176  008D  214E               	fcall	PL5	;call to abstracted procedure
+  2177  008E  2320               	fcall	_timerOut
+  2178                           
+  2179                           ;rfid125.c: 96: if(timeOutVal==0) return 0;
+  2180  008F  2141               	fcall	PL2	;call to abstracted procedure
+  2181  0090  1903               	btfsc	3,2
+  2182  0091  3400               	retlw	0
+  2183                           
+  2184                           ;rfid125.c: 98: if(0==flag_RFID_last && timeOutVal<=290 ||
+  2185                           ;rfid125.c: 99: 1==flag_RFID_last && timeOutVal>290)
+  2186  0092  08CE               	movf	get_RFID@flag_RFID_last,f
+  2187  0093  1D03               	skipz
+  2188  0094  289C               	goto	l5639
+  2189  0095  3001               	movlw	1
+  2190  0096  0250               	subwf	get_RFID@timeOutVal+1,w
+  2191  0097  3023               	movlw	35
+  2192  0098  1903               	skipnz
+  2193  0099  024F               	subwf	get_RFID@timeOutVal,w
+  2194  009A  1C03               	skipc
+  2195  009B  28A5               	goto	l5643
+  2196  009C                     l5639:	
+  2197  009C  0B4E               	decfsz	get_RFID@flag_RFID_last,w
+  2198  009D  28B7               	goto	l5659
+  2199  009E  3001               	movlw	1
+  2200  009F  0250               	subwf	get_RFID@timeOutVal+1,w
+  2201  00A0  3023               	movlw	35
+  2202  00A1  1903               	skipnz
+  2203  00A2  024F               	subwf	get_RFID@timeOutVal,w
+  2204  00A3  1C03               	skipc
+  2205  00A4  28B7               	goto	l5659
+  2206  00A5                     l5643:	
+  2207                           
+  2208                           ;rfid125.c: 100: {
+  2209                           ;rfid125.c: 101: if(!flag_RFID_last)
+  2210  00A5  08CE               	movf	get_RFID@flag_RFID_last,f
+  2211  00A6  1D03               	skipz
+  2212  00A7  28B0               	goto	l5653
+  2213                           
+  2214                           ;rfid125.c: 102: {
+  2215                           ;rfid125.c: 103: timeOutVal=timerOut(1,290);
+  2216  00A8  3022               	movlw	34
+  2217  00A9  00F2               	movwf	?_timerOut
+  2218  00AA  3001               	movlw	1
+  2219  00AB  00F3               	movwf	?_timerOut+1
+  2220  00AC  2320               	fcall	_timerOut
+  2221                           
+  2222                           ;rfid125.c: 104: if(timeOutVal==0) return 0;
+  2223  00AD  2141               	fcall	PL2	;call to abstracted procedure
+  2224  00AE  1903               	btfsc	3,2
+  2225  00AF  3400               	retlw	0
+  2226  00B0                     l5653:	
+  2227                           
+  2228                           ;rfid125.c: 105: }
+  2229                           ;rfid125.c: 106: flag_RFID_last = 0;
+  2230  00B0  01CE               	clrf	get_RFID@flag_RFID_last
+  2231                           
+  2232                           ;rfid125.c: 107: RF_serial_55bits[i] <<= 1;
+  2233  00B1  2147               	fcall	PL4	;call to abstracted procedure
+  2234                           
+  2235                           ;rfid125.c: 108: RF_serial_55bits[i] |= 0x01;
+  2236  00B2  084D               	movf	get_RFID@i,w
+  2237  00B3  3E3E               	addlw	get_RFID@RF_serial_55bits& (0+255)
+  2238  00B4  0084               	movwf	4
+  2239  00B5  1400               	bsf	0,0
+  2240                           
+  2241                           ;rfid125.c: 109: }
+  2242  00B6  28D6               	goto	l5679
+  2243  00B7                     l5659:	
+  2244                           
+  2245                           ;rfid125.c: 110: else
+  2246                           ;rfid125.c: 111: if(0==flag_RFID_last && timeOutVal>290 ||
+  2247                           ;rfid125.c: 112: 1==flag_RFID_last && timeOutVal<=290)
+  2248  00B7  08CE               	movf	get_RFID@flag_RFID_last,f
+  2249  00B8  1D03               	skipz
+  2250  00B9  28C1               	goto	l5663
+  2251  00BA  3001               	movlw	1
+  2252  00BB  0250               	subwf	get_RFID@timeOutVal+1,w
+  2253  00BC  3023               	movlw	35
+  2254  00BD  1903               	skipnz
+  2255  00BE  024F               	subwf	get_RFID@timeOutVal,w
+  2256  00BF  1803               	skipnc
+  2257  00C0  28CA               	goto	l5667
+  2258  00C1                     l5663:	
+  2259  00C1  0B4E               	decfsz	get_RFID@flag_RFID_last,w
+  2260  00C2  28D6               	goto	l5679
+  2261  00C3  3001               	movlw	1
+  2262  00C4  0250               	subwf	get_RFID@timeOutVal+1,w
+  2263  00C5  3023               	movlw	35
+  2264  00C6  1903               	skipnz
+  2265  00C7  024F               	subwf	get_RFID@timeOutVal,w
+  2266  00C8  1803               	skipnc
+  2267  00C9  28D6               	goto	l5679
+  2268  00CA                     l5667:	
+  2269                           
+  2270                           ;rfid125.c: 113: {
+  2271                           ;rfid125.c: 114: if(flag_RFID_last)
+  2272  00CA  084E               	movf	get_RFID@flag_RFID_last,w
+  2273  00CB  1903               	btfsc	3,2
+  2274  00CC  28D3               	goto	l2091
+  2275                           
+  2276                           ;rfid125.c: 115: {
+  2277                           ;rfid125.c: 116: timeOutVal=timerOut(0,600);
+  2278  00CD  3058               	movlw	88
+  2279  00CE  2154               	fcall	PL6	;call to abstracted procedure
+  2280  00CF  2320               	fcall	_timerOut
+  2281                           
+  2282                           ;rfid125.c: 117: if(timeOutVal==0) return 0;
+  2283  00D0  2141               	fcall	PL2	;call to abstracted procedure
+  2284  00D1  1903               	btfsc	3,2
+  2285  00D2  3400               	retlw	0
+  2286  00D3                     l2091:	
+  2287                           
+  2288                           ;rfid125.c: 118: }
+  2289                           ;rfid125.c: 119: flag_RFID_last = 1;
+  2290  00D3  01CE               	clrf	get_RFID@flag_RFID_last
+  2291  00D4  0ACE               	incf	get_RFID@flag_RFID_last,f
+  2292                           
+  2293                           ;rfid125.c: 120: RF_serial_55bits[i] <<= 1;
+  2294  00D5  2147               	fcall	PL4	;call to abstracted procedure
+  2295  00D6                     l5679:	
+  2296  00D6  3037               	movlw	55
+  2297  00D7  0AD1               	incf	get_RFID@ii,f
+  2298  00D8  0251               	subwf	get_RFID@ii,w
+  2299  00D9  1C03               	skipc
+  2300  00DA  2888               	goto	l5625
+  2301                           
+  2302                           ;rfid125.c: 121: }
+  2303                           ;rfid125.c: 122: }
+  2304                           ;rfid125.c: 123: if(55==ii)
+  2305  00DB  0851               	movf	get_RFID@ii,w
+  2306  00DC  3A37               	xorlw	55
+  2307  00DD  1D03               	skipz
+  2308  00DE  3400               	retlw	0
+  2309                           
+  2310                           ;rfid125.c: 124: {
+  2311                           ;rfid125.c: 125: even_col = 0;
+  2312  00DF  01CA               	clrf	get_RFID@even_col
+  2313                           
+  2314                           ;rfid125.c: 126: for(ii=0;ii<10;ii++)
+  2315  00E0  01D1               	clrf	get_RFID@ii
+  2316  00E1                     l5691:	
+  2317                           
+  2318                           ;rfid125.c: 127: {
+  2319                           ;rfid125.c: 128: even_row = (RF_serial_55bits[ii] & 0x01);
+  2320  00E1  0851               	movf	get_RFID@ii,w
+  2321  00E2  3E3E               	addlw	get_RFID@RF_serial_55bits& (0+255)
+  2322  00E3  0084               	movwf	4
+  2323  00E4  1383               	bcf	3,7	;select IRP bank0
+  2324  00E5  0800               	movf	0,w
+  2325  00E6  00CB               	movwf	get_RFID@even_row
+  2326  00E7  3001               	movlw	1
+  2327  00E8  05CB               	andwf	get_RFID@even_row,f
+  2328                           
+  2329                           ;rfid125.c: 129: for(j=1;j<5;j++)
+  2330  00E9  01CC               	clrf	get_RFID@j
+  2331  00EA  0ACC               	incf	get_RFID@j,f
+  2332  00EB                     l5701:	
+  2333                           
+  2334                           ;rfid125.c: 130: {
+  2335                           ;rfid125.c: 131: even_row = even_row ^ ((RF_serial_55bits[ii]>>j) & 0x01);
+  2336  00EB  0851               	movf	get_RFID@ii,w
+  2337  00EC  3E3E               	addlw	get_RFID@RF_serial_55bits& (0+255)
+  2338  00ED  0084               	movwf	4
+  2339  00EE  0800               	movf	0,w
+  2340  00EF  00F7               	movwf	??_get_RFID
+  2341  00F0  0A4C               	incf	get_RFID@j,w
+  2342  00F1  28F4               	goto	u1544
+  2343  00F2                     u1545:	
+  2344  00F2  1003               	clrc
+  2345  00F3  0CF7               	rrf	??_get_RFID,f
+  2346  00F4                     u1544:	
+  2347  00F4  3EFF               	addlw	-1
+  2348  00F5  1D03               	skipz
+  2349  00F6  28F2               	goto	u1545
+  2350  00F7  0877               	movf	??_get_RFID,w
+  2351  00F8  3901               	andlw	1
+  2352  00F9  06CB               	xorwf	get_RFID@even_row,f
+  2353  00FA  3005               	movlw	5
+  2354  00FB  0ACC               	incf	get_RFID@j,f
+  2355  00FC  024C               	subwf	get_RFID@j,w
+  2356  00FD  1C03               	skipc
+  2357  00FE  28EB               	goto	l5701
+  2358                           
+  2359                           ;rfid125.c: 132: }
+  2360                           ;rfid125.c: 133: if(even_row & 0x01)
+  2361  00FF  184B               	btfsc	get_RFID@even_row,0
+  2362  0100  3400               	retlw	0
+  2363                           
+  2364                           ;rfid125.c: 136: }
+  2365                           ;rfid125.c: 138: RF_serial_55bits[ii] <<= 3;
+  2366  0101  0851               	movf	get_RFID@ii,w
+  2367  0102  3E3E               	addlw	get_RFID@RF_serial_55bits& (0+255)
+  2368  0103  0084               	movwf	4
+  2369  0104  0D80               	rlf	0,f
+  2370  0105  0D80               	rlf	0,f
+  2371  0106  0D00               	rlf	0,w
+  2372  0107  39F8               	andlw	248
+  2373  0108  0080               	movwf	0
+  2374                           
+  2375                           ;rfid125.c: 140: i = RF_serial_55bits[ii];
+  2376  0109  0851               	movf	get_RFID@ii,w
+  2377  010A  3E3E               	addlw	get_RFID@RF_serial_55bits& (0+255)
+  2378  010B  0084               	movwf	4
+  2379  010C  0800               	movf	0,w
+  2380  010D  00CD               	movwf	get_RFID@i
+  2381                           
+  2382                           ;rfid125.c: 141: if( 0==ii%2 )
+  2383  010E  1851               	btfsc	get_RFID@ii,0
+  2384  010F  291D               	goto	l5717
+  2385                           
+  2386                           ;rfid125.c: 142: {
+  2387                           ;rfid125.c: 143: keyID[ii/2] = (i & 0xF0);
+  2388  0110  1003               	clrc
+  2389  0111  0C51               	rrf	get_RFID@ii,w
+  2390  0112  3E5E               	addlw	_keyID& (0+255)
+  2391  0113  0084               	movwf	4
+  2392  0114  084D               	movf	get_RFID@i,w
+  2393  0115  0080               	movwf	0
+  2394  0116  1003               	clrc
+  2395  0117  0C51               	rrf	get_RFID@ii,w
+  2396  0118  3E5E               	addlw	_keyID& (0+255)
+  2397  0119  0084               	movwf	4
+  2398  011A  30F0               	movlw	240
+  2399  011B  0580               	andwf	0,f
+  2400                           
+  2401                           ;rfid125.c: 144: }
+  2402  011C  2927               	goto	l5721
+  2403  011D                     l5717:	
+  2404  011D  300F               	movlw	15
+  2405                           
+  2406                           ;rfid125.c: 145: else
+  2407                           ;rfid125.c: 146: {
+  2408                           ;rfid125.c: 147: i >>=4;
+  2409  011E  0ECD               	swapf	get_RFID@i,f
+  2410  011F  05CD               	andwf	get_RFID@i,f
+  2411                           
+  2412                           ;rfid125.c: 148: keyID[ii/2] |= (i & 0x0F);
+  2413  0120  1003               	clrc
+  2414  0121  0C51               	rrf	get_RFID@ii,w
+  2415  0122  3E5E               	addlw	_keyID& (0+255)
+  2416  0123  0084               	movwf	4
+  2417  0124  084D               	movf	get_RFID@i,w
+  2418  0125  390F               	andlw	15
+  2419  0126  0480               	iorwf	0,f
+  2420  0127                     l5721:	
+  2421                           
+  2422                           ;rfid125.c: 149: }
+  2423                           ;rfid125.c: 150: even_col ^= RF_serial_55bits[ii];
+  2424  0127  0851               	movf	get_RFID@ii,w
+  2425  0128  3E3E               	addlw	get_RFID@RF_serial_55bits& (0+255)
+  2426  0129  0084               	movwf	4
+  2427  012A  0800               	movf	0,w
+  2428  012B  06CA               	xorwf	get_RFID@even_col,f
+  2429  012C  300A               	movlw	10
+  2430  012D  0AD1               	incf	get_RFID@ii,f
+  2431  012E  0251               	subwf	get_RFID@ii,w
+  2432  012F  1C03               	skipc
+  2433  0130  28E1               	goto	l5691
+  2434                           
+  2435                           ;rfid125.c: 151: }
+  2436                           ;rfid125.c: 152: RF_serial_55bits[10] <<= 3;
+  2437  0131  0DC8               	rlf	get_RFID@RF_serial_55bits+10,f
+  2438  0132  0DC8               	rlf	get_RFID@RF_serial_55bits+10,f
+  2439  0133  0D48               	rlf	get_RFID@RF_serial_55bits+10,w
+  2440  0134  39F8               	andlw	248
+  2441  0135  00C8               	movwf	get_RFID@RF_serial_55bits+10
+  2442  0136  30F0               	movlw	240
+  2443                           
+  2444                           ;rfid125.c: 153: keyID[0] =0x00;
+  2445  0137  01DE               	clrf	_keyID
+  2446                           
+  2447                           ;rfid125.c: 154: if(((RF_serial_55bits[10] & 0xf0)==(even_col & 0xf0)) && (0==(RF_serial
+      +                          _55bits[10]&0x08)))
+  2448  0138  054A               	andwf	get_RFID@even_col,w
+  2449  0139  00F7               	movwf	??_get_RFID
+  2450  013A  0848               	movf	get_RFID@RF_serial_55bits+10,w
+  2451  013B  39F0               	andlw	240
+  2452  013C  0677               	xorwf	??_get_RFID,w
+  2453  013D  1903               	btfsc	3,2
+  2454  013E  19C8               	btfsc	get_RFID@RF_serial_55bits+10,3
+  2455  013F  3400               	retlw	0
+  2456                           
+  2457                           ;rfid125.c: 155: {
+  2458                           ;rfid125.c: 157: return 1;
+  2459  0140  3401               	retlw	1
+  2460  0141                     __end_of_get_RFID:	
+  2461  0141                     PL2:	
+  2462  0141  0873               	movf	?_timerOut+1,w
+  2463  0142  00D0               	movwf	get_RFID@timeOutVal+1
+  2464  0143  0872               	movf	?_timerOut,w
+  2465  0144  00CF               	movwf	get_RFID@timeOutVal
+  2466  0145  0450               	iorwf	get_RFID@timeOutVal+1,w
+  2467  0146  0008               	return
+  2468  0147                     PL4:	
+  2469  0147  084D               	movf	get_RFID@i,w
+  2470  0148  3E3E               	addlw	get_RFID@RF_serial_55bits& (0+255)
+  2471  0149  0084               	movwf	4
+  2472  014A  1383               	bcf	3,7	;select IRP bank0
+  2473  014B  1003               	clrc
+  2474  014C  0D80               	rlf	0,f
+  2475  014D  0008               	return
+  2476  014E                     PL5:	
+  2477  014E  3058               	movlw	88
+  2478  014F  00F2               	movwf	?_timerOut
+  2479  0150  3002               	movlw	2
+  2480  0151  00F3               	movwf	?_timerOut+1
+  2481  0152  084E               	movf	get_RFID@flag_RFID_last,w
+  2482  0153  0008               	return
+  2483  0154                     PL6:	
+  2484  0154  00F2               	movwf	?_timerOut
+  2485  0155  3002               	movlw	2
+  2486  0156  00F3               	movwf	?_timerOut+1
+  2487  0157  3400               	retlw	0
+  2488                           
+  2489                           	psect	text529
+  2490  02FD                     __ptext529:	
+  2491 ;; =============== function _get_RFID ends ============
+  2492                           
+  2493                           
+  2494 ;; *************** function _eepromWriteByte *****************
+  2495 ;; Defined at:
+  2496 ;;		line 26 in file "ms82_eeprom.c"
+  2497 ;; Parameters:    Size  Location     Type
+  2498 ;;  EEAddr          1    wreg     unsigned char 
+  2499 ;;  EEData          1    2[COMMON] unsigned char 
+  2500 ;; Auto vars:     Size  Location     Type
+  2501 ;;  EEAddr          1    5[COMMON] unsigned char 
+  2502 ;; Return value:  Size  Location     Type
+  2503 ;;		None               void
+  2504 ;; Registers used:
+  2505 ;;		wreg
+  2506 ;; Tracked objects:
+  2507 ;;		On entry : 0/20
+  2508 ;;		On exit  : 0/0
+  2509 ;;		Unchanged: 0/0
+  2510 ;; Data sizes:     COMMON   BANK0   BANK1
+  2511 ;;      Params:         1       0       0
+  2512 ;;      Locals:         1       0       0
+  2513 ;;      Temps:          2       0       0
+  2514 ;;      Totals:         4       0       0
+  2515 ;;Total ram usage:        4 bytes
+  2516 ;; Hardware stack levels used:    1
+  2517 ;; Hardware stack levels required when called:    1
+  2518 ;; This function calls:
+  2519 ;;		Nothing
+  2520 ;; This function is called by:
+  2521 ;;		_eepromWriteBlock
+  2522 ;;		_main
+  2523 ;; This function uses a non-reentrant model
+  2524 ;;
+  2525  02FD                     _eepromWriteByte:	
+  2526                           
+  2527                           ; Regs used in _eepromWriteByte: [wreg]
+  2528                           ;eepromWriteByte@EEAddr stored from wreg
+  2529  02FD  00F5               	movwf	eepromWriteByte@EEAddr
+  2530                           
+  2531                           ;ms82_eeprom.c: 27: GIE = 0;
+  2532  02FE  138B               	bcf	11,7
+  2533  02FF                     l1325:	
+  2534                           ;ms82_eeprom.c: 29: {
+  2535                           ;ms82_eeprom.c: 30: while(GIE) asm("clrwdt");
+  2536                           
+  2537  02FF  1F8B               	btfss	11,7
+  2538  0300  2B03               	goto	l5509
+  2539  0301  0064               	clrwdt	;#
+  2540  0302  2AFF               	goto	l1325
+  2541  0303                     l5509:	
+  2542                           
+  2543                           ;ms82_eeprom.c: 31: EEADR = EEAddr;
+  2544  0303  0875               	movf	eepromWriteByte@EEAddr,w
+  2545  0304  1683               	bsf	3,5	;RP0=1, select bank1
+  2546  0305  1303               	bcf	3,6	;RP1=0, select bank1
+  2547  0306  009B               	movwf	27	;volatile
+  2548                           
+  2549                           ;ms82_eeprom.c: 32: EEDAT = EEData;
+  2550  0307  0872               	movf	eepromWriteByte@EEData,w
+  2551  0308  009A               	movwf	26	;volatile
+  2552  0309  3034               	movlw	52
+  2553                           
+  2554                           ;ms82_eeprom.c: 33: EEIF = 0;
+  2555  030A  1283               	bcf	3,5	;RP0=0, select bank0
+  2556  030B  138C               	bcf	12,7
+  2557                           
+  2558                           ;ms82_eeprom.c: 34: EECON1 = 0x34;
+  2559  030C  1683               	bsf	3,5	;RP0=1, select bank1
+  2560  030D  009C               	movwf	28	;volatile
+  2561                           
+  2562                           ;ms82_eeprom.c: 35: WR = 1;
+  2563  030E  141D               	bsf	29,0
+  2564  030F                     l1328:	
+  2565                           ;ms82_eeprom.c: 36: while(WR) asm("clrwdt");
+  2566                           
+  2567  030F  1683               	bsf	3,5	;RP0=1, select bank1
+  2568  0310  1303               	bcf	3,6	;RP1=0, select bank1
+  2569  0311  1C1D               	btfss	29,0
+  2570  0312  2B15               	goto	l5515
+  2571  0313  0064               	clrwdt	;#
+  2572  0314  2B0F               	goto	l1328
+  2573  0315                     l5515:	
+  2574                           
+  2575                           ;ms82_eeprom.c: 37: _delay((unsigned long)((2)*(8000000/4000.0)));
+  2576  0315  3006               	movlw	6
+  2577  0316  00F4               	movwf	??_eepromWriteByte+1
+  2578  0317  3030               	movlw	48
+  2579  0318  00F3               	movwf	??_eepromWriteByte
+  2580  0319                     u1957:	
+  2581  0319  0BF3               	decfsz	??_eepromWriteByte,f
+  2582  031A  2B19               	goto	u1957
+  2583  031B  0BF4               	decfsz	??_eepromWriteByte+1,f
+  2584  031C  2B19               	goto	u1957
+  2585  031D  0064               	clrwdt
+  2586                           
+  2587                           ;ms82_eeprom.c: 38: }
+  2588                           ;ms82_eeprom.c: 39: GIE = 1;
+  2589  031E  178B               	bsf	11,7
+  2590  031F  0008               	return
+  2591  0320                     __end_of_eepromWriteByte:	
+  2592                           
+  2593                           	psect	text530
+  2594  043D                     __ptext530:	
+  2595 ;; =============== function _eepromWriteByte ends ============
+  2596                           
+  2597                           
+  2598 ;; *************** function _eepromReadBlock *****************
+  2599 ;; Defined at:
+  2600 ;;		line 18 in file "ms82_eeprom.c"
+  2601 ;; Parameters:    Size  Location     Type
+  2602 ;;  addStart        1    wreg     unsigned char 
+  2603 ;;  buff            1    4[COMMON] PTR unsigned char 
+  2604 ;;		 -> buffTag(25), 
+  2605 ;;  len             1    5[COMMON] unsigned char 
+  2606 ;; Auto vars:     Size  Location     Type
+  2607 ;;  addStart        1    7[COMMON] unsigned char 
+  2608 ;;  i               1    8[COMMON] unsigned char 
+  2609 ;; Return value:  Size  Location     Type
+  2610 ;;		None               void
+  2611 ;; Registers used:
+  2612 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+  2613 ;; Tracked objects:
+  2614 ;;		On entry : 0/20
+  2615 ;;		On exit  : 0/0
+  2616 ;;		Unchanged: FFE9F/0
+  2617 ;; Data sizes:     COMMON   BANK0   BANK1
+  2618 ;;      Params:         2       0       0
+  2619 ;;      Locals:         2       0       0
+  2620 ;;      Temps:          1       0       0
+  2621 ;;      Totals:         5       0       0
+  2622 ;;Total ram usage:        5 bytes
+  2623 ;; Hardware stack levels used:    1
+  2624 ;; Hardware stack levels required when called:    2
+  2625 ;; This function calls:
+  2626 ;;		_eepromReadByte
+  2627 ;; This function is called by:
+  2628 ;;		_main
+  2629 ;; This function uses a non-reentrant model
+  2630 ;;
+  2631  043D                     _eepromReadBlock:	
+  2632                           
+  2633                           ; Regs used in _eepromReadBlock: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+  2634                           ;eepromReadBlock@addStart stored from wreg
+  2635  043D  00F7               	movwf	eepromReadBlock@addStart
+  2636                           
+  2637                           ;ms82_eeprom.c: 19: unsigned char i;
+  2638                           ;ms82_eeprom.c: 20: for(i=0;i<len;i++){
+  2639  043E  01F8               	clrf	eepromReadBlock@i
+  2640  043F                     l5505:	
+  2641  043F  0875               	movf	eepromReadBlock@len,w
+  2642  0440  0278               	subwf	eepromReadBlock@i,w
+  2643  0441  1803               	btfsc	3,0
+  2644  0442  0008               	return
+  2645                           
+  2646                           ;ms82_eeprom.c: 21: buff[i] = eepromReadByte(addStart+i);
+  2647  0443  0878               	movf	eepromReadBlock@i,w
+  2648  0444  0774               	addwf	eepromReadBlock@buff,w
+  2649  0445  00F6               	movwf	??_eepromReadBlock
+  2650  0446  0084               	movwf	4
+  2651  0447  0878               	movf	eepromReadBlock@i,w
+  2652  0448  0777               	addwf	eepromReadBlock@addStart,w
+  2653  0449  24B7               	fcall	_eepromReadByte
+  2654  044A  1383               	bcf	3,7	;select IRP bank0
+  2655  044B  0080               	movwf	0
+  2656  044C  0AF8               	incf	eepromReadBlock@i,f
+  2657  044D  2C3F               	goto	l5505
+  2658  044E                     __end_of_eepromReadBlock:	
+  2659                           
+  2660                           	psect	text531
+  2661  04A3                     __ptext531:	
+  2662 ;; =============== function _eepromReadBlock ends ============
+  2663                           
+  2664                           
+  2665 ;; *************** function _sys_init *****************
+  2666 ;; Defined at:
+  2667 ;;		line 3 in file "sysinit.c"
+  2668 ;; Parameters:    Size  Location     Type
+  2669 ;;		None
+  2670 ;; Auto vars:     Size  Location     Type
+  2671 ;;		None
+  2672 ;; Return value:  Size  Location     Type
+  2673 ;;		None               void
+  2674 ;; Registers used:
+  2675 ;;		wreg
+  2676 ;; Tracked objects:
+  2677 ;;		On entry : 0/0
+  2678 ;;		On exit  : 60/20
+  2679 ;;		Unchanged: 0/0
+  2680 ;; Data sizes:     COMMON   BANK0   BANK1
+  2681 ;;      Params:         0       0       0
+  2682 ;;      Locals:         0       0       0
+  2683 ;;      Temps:          0       0       0
+  2684 ;;      Totals:         0       0       0
+  2685 ;;Total ram usage:        0 bytes
+  2686 ;; Hardware stack levels used:    1
+  2687 ;; Hardware stack levels required when called:    1
+  2688 ;; This function calls:
+  2689 ;;		Nothing
+  2690 ;; This function is called by:
+  2691 ;;		_main
+  2692 ;; This function uses a non-reentrant model
+  2693 ;;
+  2694  04A3                     _sys_init:	
+  2695                           
+  2696                           ;sysinit.c: 21: OSCCON = 0B01100001;
+  2697                           
+  2698                           ; Regs used in _sys_init: [wreg]
+  2699  04A3  3061               	movlw	97
+  2700  04A4  1683               	bsf	3,5	;RP0=1, select bank1
+  2701  04A5  1303               	bcf	3,6	;RP1=0, select bank1
+  2702  04A6  008F               	movwf	15	;volatile
+  2703                           
+  2704                           ;sysinit.c: 22: _nop();
+  2705  04A7  0000               	nop
+  2706  04A8                     l651:	
+  2707                           ;sysinit.c: 28: while(HTS==0);
+  2708                           
+  2709  04A8  1683               	bsf	3,5	;RP0=1, select bank1
+  2710  04A9  1303               	bcf	3,6	;RP1=0, select bank1
+  2711  04AA  190F               	btfsc	15,2
+  2712  04AB  0008               	return
+  2713  04AC  2CA8               	goto	l651
+  2714  04AD                     __end_of_sys_init:	
+  2715                           
+  2716                           	psect	text532
+  2717  039E                     __ptext532:	
+  2718 ;; =============== function _sys_init ends ============
+  2719                           
+  2720                           
+  2721 ;; *************** function ___lbdiv *****************
+  2722 ;; Defined at:
+  2723 ;;		line 5 in file "D:\OneDrive\SmarRF\MCU\MC82\IDE\ORIGINIDE_V2.0.9\Program Files (x86)\HI-TECH Software\PICC\9.83\sour
+      +ces\lbdiv.c"
+  2724 ;; Parameters:    Size  Location     Type
+  2725 ;;  dividend        1    wreg     unsigned char 
+  2726 ;;  divisor         1    2[COMMON] unsigned char 
+  2727 ;; Auto vars:     Size  Location     Type
+  2728 ;;  dividend        1    3[COMMON] unsigned char 
+  2729 ;;  quotient        1    5[COMMON] unsigned char 
+  2730 ;;  counter         1    4[COMMON] unsigned char 
+  2731 ;; Return value:  Size  Location     Type
+  2732 ;;                  1    wreg      unsigned char 
+  2733 ;; Registers used:
+  2734 ;;		wreg, status,2, status,0
+  2735 ;; Tracked objects:
+  2736 ;;		On entry : 60/0
+  2737 ;;		On exit  : 60/0
+  2738 ;;		Unchanged: FFF9F/0
+  2739 ;; Data sizes:     COMMON   BANK0   BANK1
+  2740 ;;      Params:         1       0       0
+  2741 ;;      Locals:         3       0       0
+  2742 ;;      Temps:          0       0       0
+  2743 ;;      Totals:         4       0       0
+  2744 ;;Total ram usage:        4 bytes
+  2745 ;; Hardware stack levels used:    1
+  2746 ;; Hardware stack levels required when called:    1
+  2747 ;; This function calls:
+  2748 ;;		Nothing
+  2749 ;; This function is called by:
+  2750 ;;		_get_RFID
+  2751 ;;		_id_search
+  2752 ;; This function uses a non-reentrant model
+  2753 ;;
+  2754  039E                     ___lbdiv:	
+  2755                           
+  2756                           ; Regs used in ___lbdiv: [wreg+status,2+status,0]
+  2757                           ;___lbdiv@dividend stored from wreg
+  2758  039E  00F3               	movwf	___lbdiv@dividend
+  2759  039F  01F5               	clrf	___lbdiv@quotient
+  2760  03A0  0872               	movf	___lbdiv@divisor,w
+  2761  03A1  1903               	btfsc	3,2
+  2762  03A2  2BB7               	goto	l5491
+  2763  03A3  01F4               	clrf	___lbdiv@counter
+  2764  03A4                     l5477:	
+  2765  03A4  0AF4               	incf	___lbdiv@counter,f
+  2766  03A5  1BF2               	btfsc	___lbdiv@divisor,7
+  2767  03A6  2BAA               	goto	l4223
+  2768  03A7  1003               	clrc
+  2769  03A8  0DF2               	rlf	___lbdiv@divisor,f
+  2770  03A9  2BA4               	goto	l5477
+  2771  03AA                     l4223:	
+  2772  03AA  1003               	clrc
+  2773  03AB  0DF5               	rlf	___lbdiv@quotient,f
+  2774  03AC  0872               	movf	___lbdiv@divisor,w
+  2775  03AD  0273               	subwf	___lbdiv@dividend,w
+  2776  03AE  1C03               	skipc
+  2777  03AF  2BB4               	goto	L2
+  2778  03B0  0872               	movf	___lbdiv@divisor,w
+  2779  03B1  02F3               	subwf	___lbdiv@dividend,f
+  2780  03B2  1475               	bsf	___lbdiv@quotient,0
+  2781  03B3  1003               	clrc
+  2782  03B4                     L2:	
+  2783  03B4  0CF2               	rrf	___lbdiv@divisor,f
+  2784  03B5  0BF4               	decfsz	___lbdiv@counter,f
+  2785  03B6  2BAA               	goto	l4223
+  2786  03B7                     l5491:	
+  2787  03B7  0875               	movf	___lbdiv@quotient,w
+  2788  03B8  0008               	return
+  2789  03B9                     __end_of___lbdiv:	
+  2790                           
+  2791                           	psect	text533
+  2792  02D9                     __ptext533:	
+  2793 ;; =============== function ___lbdiv ends ============
+  2794                           
+  2795                           
+  2796 ;; *************** function ___lwmod *****************
+  2797 ;; Defined at:
+  2798 ;;		line 5 in file "D:\OneDrive\SmarRF\MCU\MC82\IDE\ORIGINIDE_V2.0.9\Program Files (x86)\HI-TECH Software\PICC\9.83\sour
+      +ces\lwmod.c"
+  2799 ;; Parameters:    Size  Location     Type
+  2800 ;;  divisor         2    2[COMMON] unsigned int 
+  2801 ;;  dividend        2    4[COMMON] unsigned int 
+  2802 ;; Auto vars:     Size  Location     Type
+  2803 ;;  counter         1    6[COMMON] unsigned char 
+  2804 ;; Return value:  Size  Location     Type
+  2805 ;;                  2    2[COMMON] unsigned int 
+  2806 ;; Registers used:
+  2807 ;;		wreg, status,2, status,0
+  2808 ;; Tracked objects:
+  2809 ;;		On entry : 60/0
+  2810 ;;		On exit  : 60/0
+  2811 ;;		Unchanged: FFF9F/0
+  2812 ;; Data sizes:     COMMON   BANK0   BANK1
+  2813 ;;      Params:         4       0       0
+  2814 ;;      Locals:         1       0       0
+  2815 ;;      Temps:          0       0       0
+  2816 ;;      Totals:         5       0       0
+  2817 ;;Total ram usage:        5 bytes
+  2818 ;; Hardware stack levels used:    1
+  2819 ;; Hardware stack levels required when called:    1
+  2820 ;; This function calls:
+  2821 ;;		Nothing
+  2822 ;; This function is called by:
+  2823 ;;		_main
+  2824 ;; This function uses a non-reentrant model
+  2825 ;;
+  2826  02D9                     ___lwmod:	
+  2827                           
+  2828                           ; Regs used in ___lwmod: [wreg+status,2+status,0]
+  2829  02D9  0873               	movf	___lwmod@divisor+1,w
+  2830  02DA  0472               	iorwf	___lwmod@divisor,w
+  2831  02DB  1903               	skipnz
+  2832  02DC  2AF8               	goto	l5467
+  2833  02DD  01F6               	clrf	___lwmod@counter
+  2834  02DE                     L3:	
+  2835  02DE  0AF6               	incf	___lwmod@counter,f
+  2836  02DF  1BF3               	btfsc	___lwmod@divisor+1,7
+  2837  02E0  2AE5               	goto	l5459
+  2838  02E1  1003               	clrc
+  2839  02E2  0DF2               	rlf	___lwmod@divisor,f
+  2840  02E3  0DF3               	rlf	___lwmod@divisor+1,f
+  2841  02E4  2ADE               	goto	L3
+  2842  02E5                     l5459:	
+  2843  02E5  0873               	movf	___lwmod@divisor+1,w
+  2844  02E6  0275               	subwf	___lwmod@dividend+1,w
+  2845  02E7  1D03               	skipz
+  2846  02E8  2AEB               	goto	u1085
+  2847  02E9  0872               	movf	___lwmod@divisor,w
+  2848  02EA  0274               	subwf	___lwmod@dividend,w
+  2849  02EB                     u1085:	
+  2850  02EB  1C03               	skipc
+  2851  02EC  2AF4               	goto	L4
+  2852  02ED  0872               	movf	___lwmod@divisor,w
+  2853  02EE  02F4               	subwf	___lwmod@dividend,f
+  2854  02EF  0873               	movf	___lwmod@divisor+1,w
+  2855  02F0  1C03               	skipc
+  2856  02F1  03F5               	decf	___lwmod@dividend+1,f
+  2857  02F2  02F5               	subwf	___lwmod@dividend+1,f
+  2858  02F3  1003               	clrc
+  2859  02F4                     L4:	
+  2860  02F4  0CF3               	rrf	___lwmod@divisor+1,f
+  2861  02F5  0CF2               	rrf	___lwmod@divisor,f
+  2862  02F6  0BF6               	decfsz	___lwmod@counter,f
+  2863  02F7  2AE5               	goto	l5459
+  2864  02F8                     l5467:	
+  2865  02F8  0875               	movf	___lwmod@dividend+1,w
+  2866  02F9  00F3               	movwf	?___lwmod+1
+  2867  02FA  0874               	movf	___lwmod@dividend,w
+  2868  02FB  00F2               	movwf	?___lwmod
+  2869  02FC  0008               	return
+  2870  02FD                     __end_of___lwmod:	
+  2871                           
+  2872                           	psect	text534
+  2873  047C                     __ptext534:	
+  2874 ;; =============== function ___lwmod ends ============
+  2875                           
+  2876                           
+  2877 ;; *************** function ___bmul *****************
+  2878 ;; Defined at:
+  2879 ;;		line 3 in file "D:\OneDrive\SmarRF\MCU\MC82\IDE\ORIGINIDE_V2.0.9\Program Files (x86)\HI-TECH Software\PICC\9.83\sour
+      +ces\bmul.c"
+  2880 ;; Parameters:    Size  Location     Type
+  2881 ;;  multiplier      1    wreg     unsigned char 
+  2882 ;;  multiplicand    1    2[COMMON] unsigned char 
+  2883 ;; Auto vars:     Size  Location     Type
+  2884 ;;  multiplier      1    4[COMMON] unsigned char 
+  2885 ;;  product         1    3[COMMON] unsigned char 
+  2886 ;; Return value:  Size  Location     Type
+  2887 ;;                  1    wreg      unsigned char 
+  2888 ;; Registers used:
+  2889 ;;		wreg, status,2, status,0
+  2890 ;; Tracked objects:
+  2891 ;;		On entry : 60/0
+  2892 ;;		On exit  : 60/0
+  2893 ;;		Unchanged: FFF9F/0
+  2894 ;; Data sizes:     COMMON   BANK0   BANK1
+  2895 ;;      Params:         1       0       0
+  2896 ;;      Locals:         2       0       0
+  2897 ;;      Temps:          0       0       0
+  2898 ;;      Totals:         3       0       0
+  2899 ;;Total ram usage:        3 bytes
+  2900 ;; Hardware stack levels used:    1
+  2901 ;; Hardware stack levels required when called:    1
+  2902 ;; This function calls:
+  2903 ;;		Nothing
+  2904 ;; This function is called by:
+  2905 ;;		_id_replate
+  2906 ;; This function uses a non-reentrant model
+  2907 ;;
+  2908  047C                     ___bmul:	
+  2909                           
+  2910                           ; Regs used in ___bmul: [wreg+status,2+status,0]
+  2911                           ;___bmul@multiplier stored from wreg
+  2912  047C  00F4               	movwf	___bmul@multiplier
+  2913  047D  01F3               	clrf	___bmul@product
+  2914  047E                     l5437:	
+  2915  047E  0872               	movf	___bmul@multiplicand,w
+  2916  047F  1874               	btfsc	___bmul@multiplier,0
+  2917  0480  07F3               	addwf	___bmul@product,f
+  2918  0481  1003               	clrc
+  2919  0482  0DF2               	rlf	___bmul@multiplicand,f
+  2920  0483  1003               	clrc
+  2921  0484  0CF4               	rrf	___bmul@multiplier,f
+  2922  0485  08F4               	movf	___bmul@multiplier,f
+  2923  0486  1D03               	skipz
+  2924  0487  2C7E               	goto	l5437
+  2925  0488  0873               	movf	___bmul@product,w
+  2926  0489  0008               	return
+  2927  048A                     __end_of___bmul:	
+  2928                           
+  2929                           	psect	text535
+  2930  0498                     __ptext535:	
+  2931 ;; =============== function ___bmul ends ============
+  2932                           
+  2933                           
+  2934 ;; *************** function _setState *****************
+  2935 ;; Defined at:
+  2936 ;;		line 145 in file "MAIN.C"
+  2937 ;; Parameters:    Size  Location     Type
+  2938 ;;  stt             1    wreg     unsigned char 
+  2939 ;;  _tOut           2    2[COMMON] unsigned int 
+  2940 ;; Auto vars:     Size  Location     Type
+  2941 ;;  stt             1    4[COMMON] unsigned char 
+  2942 ;; Return value:  Size  Location     Type
+  2943 ;;		None               void
+  2944 ;; Registers used:
+  2945 ;;		wreg, status,2
+  2946 ;; Tracked objects:
+  2947 ;;		On entry : 0/20
+  2948 ;;		On exit  : 60/0
+  2949 ;;		Unchanged: FFF9F/0
+  2950 ;; Data sizes:     COMMON   BANK0   BANK1
+  2951 ;;      Params:         2       0       0
+  2952 ;;      Locals:         1       0       0
+  2953 ;;      Temps:          0       0       0
+  2954 ;;      Totals:         3       0       0
+  2955 ;;Total ram usage:        3 bytes
+  2956 ;; Hardware stack levels used:    1
+  2957 ;; Hardware stack levels required when called:    1
+  2958 ;; This function calls:
+  2959 ;;		Nothing
+  2960 ;; This function is called by:
+  2961 ;;		_main
+  2962 ;; This function uses a non-reentrant model
+  2963 ;;
+  2964  0498                     _setState:	
+  2965                           
+  2966                           ; Regs used in _setState: [wreg+status,2]
+  2967                           ;setState@stt stored from wreg
+  2968  0498  00F4               	movwf	setState@stt
+  2969                           
+  2970                           ;MAIN.C: 147: mtState = stt;
+  2971  0499  1283               	bcf	3,5	;RP0=0, select bank0
+  2972  049A  1303               	bcf	3,6	;RP1=0, select bank0
+  2973  049B  00DD               	movwf	_mtState
+  2974                           
+  2975                           ;MAIN.C: 148: timeTick =0;
+  2976  049C  01DA               	clrf	_timeTick
+  2977  049D  01DB               	clrf	_timeTick+1
+  2978                           
+  2979                           ;MAIN.C: 149: timeOut = _tOut;
+  2980  049E  0873               	movf	setState@_tOut+1,w
+  2981  049F  00D9               	movwf	_timeOut+1
+  2982  04A0  0872               	movf	setState@_tOut,w
+  2983  04A1  00D8               	movwf	_timeOut
+  2984  04A2  0008               	return
+  2985  04A3                     __end_of_setState:	
+  2986                           
+  2987                           	psect	text536
+  2988  03D3                     __ptext536:	
+  2989 ;; =============== function _setState ends ============
+  2990                           
+  2991                           
+  2992 ;; *************** function _SET_EPWM_ON *****************
+  2993 ;; Defined at:
+  2994 ;;		line 11 in file "ms82_pwm.c"
+  2995 ;; Parameters:    Size  Location     Type
+  2996 ;;		None
+  2997 ;; Auto vars:     Size  Location     Type
+  2998 ;;		None
+  2999 ;; Return value:  Size  Location     Type
+  3000 ;;		None               void
+  3001 ;; Registers used:
+  3002 ;;		wreg, status,2
+  3003 ;; Tracked objects:
+  3004 ;;		On entry : 60/20
+  3005 ;;		On exit  : 60/20
+  3006 ;;		Unchanged: FFE00/0
+  3007 ;; Data sizes:     COMMON   BANK0   BANK1
+  3008 ;;      Params:         0       0       0
+  3009 ;;      Locals:         0       0       0
+  3010 ;;      Temps:          0       0       0
+  3011 ;;      Totals:         0       0       0
+  3012 ;;Total ram usage:        0 bytes
+  3013 ;; Hardware stack levels used:    1
+  3014 ;; Hardware stack levels required when called:    1
+  3015 ;; This function calls:
+  3016 ;;		Nothing
+  3017 ;; This function is called by:
+  3018 ;;		_main
+  3019 ;; This function uses a non-reentrant model
+  3020 ;;
+  3021  03D3                     _SET_EPWM_ON:	
+  3022                           
+  3023                           ;ms82_pwm.c: 12: TRISC |= 0b00000100;
+  3024                           
+  3025                           ; Regs used in _SET_EPWM_ON: [wreg+status,2]
+  3026  03D3  1507               	bsf	7,2	;volatile
+  3027                           
+  3028                           ;ms82_pwm.c: 13: PR2 = 15;
+  3029  03D4  300F               	movlw	15
+  3030  03D5  0092               	movwf	18	;volatile
+  3031                           
+  3032                           ;ms82_pwm.c: 14: EPWMR1L =0;
+  3033  03D6  1283               	bcf	3,5	;RP0=0, select bank0
+  3034  03D7  0193               	clrf	19	;volatile
+  3035                           
+  3036                           ;ms82_pwm.c: 15: EPWM1CON = 0b10011100;
+  3037  03D8  309C               	movlw	156
+  3038  03D9  0095               	movwf	21	;volatile
+  3039                           
+  3040                           ;ms82_pwm.c: 16: TMR2 = 0;
+  3041  03DA  0191               	clrf	17	;volatile
+  3042  03DB  3004               	movlw	4
+  3043                           
+  3044                           ;ms82_pwm.c: 17: TMR2IF = 0;
+  3045  03DC  108C               	bcf	12,1
+  3046                           
+  3047                           ;ms82_pwm.c: 18: T2CON = 0B00000100;
+  3048  03DD  0092               	movwf	18	;volatile
+  3049  03DE                     l2750:	
+  3050                           ;ms82_pwm.c: 19: while(TMR2IF==1) asm("clrwdt");
+  3051                           
+  3052  03DE  1283               	bcf	3,5	;RP0=0, select bank0
+  3053  03DF  1303               	bcf	3,6	;RP1=0, select bank0
+  3054  03E0  1C8C               	btfss	12,1
+  3055  03E1  2BE4               	goto	l5425
+  3056  03E2  0064               	clrwdt	;#
+  3057  03E3  2BDE               	goto	l2750
+  3058  03E4                     l5425:	
+  3059                           
+  3060                           ;ms82_pwm.c: 20: PWM1CON = 0b00010000;
+  3061  03E4  3010               	movlw	16
+  3062  03E5  0096               	movwf	22	;volatile
+  3063                           
+  3064                           ;ms82_pwm.c: 21: EPWM1AUX = 0b10001000;
+  3065  03E6  3088               	movlw	136
+  3066  03E7  1683               	bsf	3,5	;RP0=1, select bank1
+  3067  03E8  0090               	movwf	16	;volatile
+  3068                           
+  3069                           ;ms82_pwm.c: 22: TRISC &= 0b11111011;
+  3070  03E9  1107               	bcf	7,2	;volatile
+  3071  03EA  0008               	return
+  3072  03EB                     __end_of_SET_EPWM_ON:	
+  3073                           
+  3074                           	psect	text537
+  3075  0320                     __ptext537:	
+  3076 ;; =============== function _SET_EPWM_ON ends ============
+  3077                           
+  3078                           
+  3079 ;; *************** function _timerOut *****************
+  3080 ;; Defined at:
+  3081 ;;		line 6 in file "rfid125.c"
+  3082 ;; Parameters:    Size  Location     Type
+  3083 ;;  Logic           1    wreg     unsigned char 
+  3084 ;;  time            2    2[COMMON] unsigned int 
+  3085 ;; Auto vars:     Size  Location     Type
+  3086 ;;  Logic           1    4[COMMON] unsigned char 
+  3087 ;;  CurTimer        2    5[COMMON] unsigned int 
+  3088 ;; Return value:  Size  Location     Type
+  3089 ;;                  2    2[COMMON] unsigned int 
+  3090 ;; Registers used:
+  3091 ;;		wreg, status,2
+  3092 ;; Tracked objects:
+  3093 ;;		On entry : 60/0
+  3094 ;;		On exit  : 60/0
+  3095 ;;		Unchanged: FFF9F/0
+  3096 ;; Data sizes:     COMMON   BANK0   BANK1
+  3097 ;;      Params:         2       0       0
+  3098 ;;      Locals:         3       0       0
+  3099 ;;      Temps:          0       0       0
+  3100 ;;      Totals:         5       0       0
+  3101 ;;Total ram usage:        5 bytes
+  3102 ;; Hardware stack levels used:    1
+  3103 ;; Hardware stack levels required when called:    1
+  3104 ;; This function calls:
+  3105 ;;		Nothing
+  3106 ;; This function is called by:
+  3107 ;;		_get_RFID
+  3108 ;; This function uses a non-reentrant model
+  3109 ;;
+  3110  0320                     _timerOut:	
+  3111                           
+  3112                           ; Regs used in _timerOut: [wreg+status,2]
+  3113                           ;timerOut@Logic stored from wreg
+  3114  0320  00F4               	movwf	timerOut@Logic
+  3115                           
+  3116                           ;rfid125.c: 7: unsigned int CurTimer;
+  3117                           ;rfid125.c: 8: TMR1ON = 0;
+  3118  0321  1010               	bcf	16,0
+  3119                           
+  3120                           ;rfid125.c: 9: TMR1H = 0;
+  3121  0322  018F               	clrf	15	;volatile
+  3122                           
+  3123                           ;rfid125.c: 10: TMR1L = 0;
+  3124  0323  018E               	clrf	14	;volatile
+  3125                           
+  3126                           ;rfid125.c: 11: TMR1IF = 0;
+  3127  0324  100C               	bcf	12,0
+  3128                           
+  3129                           ;rfid125.c: 12: TMR1ON = 1;
+  3130  0325  1410               	bsf	16,0
+  3131  0326                     l5407:	
+  3132                           ;rfid125.c: 13: while(RA4==Logic){
+  3133                           
+  3134  0326  3000               	movlw	0
+  3135  0327  1A05               	btfsc	5,4
+  3136  0328  3001               	movlw	1
+  3137  0329  0674               	xorwf	timerOut@Logic,w
+  3138  032A  1D03               	btfss	3,2
+  3139  032B  2B3C               	goto	l5409
+  3140                           
+  3141                           ;rfid125.c: 14: CurTimer= (TMR1H <<8 )| TMR1L;
+  3142  032C  080F               	movf	15,w	;volatile
+  3143  032D  00F6               	movwf	timerOut@CurTimer+1
+  3144  032E  01F5               	clrf	timerOut@CurTimer
+  3145  032F  080E               	movf	14,w	;volatile
+  3146  0330  04F5               	iorwf	timerOut@CurTimer,f
+  3147                           
+  3148                           ;rfid125.c: 15: if(CurTimer>time)
+  3149  0331  0876               	movf	timerOut@CurTimer+1,w
+  3150  0332  0273               	subwf	timerOut@time+1,w
+  3151  0333  1D03               	skipz
+  3152  0334  2B37               	goto	u1015
+  3153  0335  0875               	movf	timerOut@CurTimer,w
+  3154  0336  0272               	subwf	timerOut@time,w
+  3155  0337                     u1015:	
+  3156  0337  1803               	skipnc
+  3157  0338  2B26               	goto	l5407
+  3158                           
+  3159                           ;rfid125.c: 16: return 0;
+  3160  0339  01F2               	clrf	?_timerOut
+  3161  033A  01F3               	clrf	?_timerOut+1
+  3162  033B  0008               	return
+  3163  033C                     l5409:	
+  3164                           
+  3165                           ;rfid125.c: 17: }
+  3166                           ;rfid125.c: 18: return CurTimer;
+  3167  033C  0876               	movf	timerOut@CurTimer+1,w
+  3168  033D  00F3               	movwf	?_timerOut+1
+  3169  033E  0875               	movf	timerOut@CurTimer,w
+  3170  033F  00F2               	movwf	?_timerOut
+  3171  0340  0008               	return
+  3172  0341                     __end_of_timerOut:	
+  3173                           
+  3174                           	psect	text538
+  3175  0361                     __ptext538:	
+  3176 ;; =============== function _timerOut ends ============
+  3177                           
+  3178                           
+  3179 ;; *************** function _comArr *****************
+  3180 ;; Defined at:
+  3181 ;;		line 52 in file "ms82_eeprom.c"
+  3182 ;; Parameters:    Size  Location     Type
+  3183 ;;  arr1            1    wreg     PTR unsigned char 
+  3184 ;;		 -> keyID(5), 
+  3185 ;;  arr2            1    2[COMMON] PTR unsigned char 
+  3186 ;;		 -> buffTag(25), 
+  3187 ;;  len1            1    3[COMMON] unsigned char 
+  3188 ;;  len2            1    4[COMMON] unsigned char 
+  3189 ;; Auto vars:     Size  Location     Type
+  3190 ;;  arr1            1    8[COMMON] PTR unsigned char 
+  3191 ;;		 -> keyID(5), 
+  3192 ;;  i               1    9[COMMON] unsigned char 
+  3193 ;; Return value:  Size  Location     Type
+  3194 ;;                  1    wreg      unsigned char 
+  3195 ;; Registers used:
+  3196 ;;		wreg, fsr0l, fsr0h, status,2, status,0
+  3197 ;; Tracked objects:
+  3198 ;;		On entry : 60/0
+  3199 ;;		On exit  : 60/0
+  3200 ;;		Unchanged: FFE9F/0
+  3201 ;; Data sizes:     COMMON   BANK0   BANK1
+  3202 ;;      Params:         3       0       0
+  3203 ;;      Locals:         2       0       0
+  3204 ;;      Temps:          3       0       0
+  3205 ;;      Totals:         8       0       0
+  3206 ;;Total ram usage:        8 bytes
+  3207 ;; Hardware stack levels used:    1
+  3208 ;; Hardware stack levels required when called:    1
+  3209 ;; This function calls:
+  3210 ;;		Nothing
+  3211 ;; This function is called by:
+  3212 ;;		_id_search
+  3213 ;; This function uses a non-reentrant model
+  3214 ;;
+  3215  0361                     _comArr:	
+  3216                           
+  3217                           ; Regs used in _comArr: [wreg-fsr0h+status,2+status,0]
+  3218                           ;comArr@arr1 stored from wreg
+  3219  0361  00F8               	movwf	comArr@arr1
+  3220                           
+  3221                           ;ms82_eeprom.c: 53: unsigned char i;
+  3222                           ;ms82_eeprom.c: 55: if(len1!=len2)
+  3223  0362  0873               	movf	comArr@len1,w
+  3224  0363  0674               	xorwf	comArr@len2,w
+  3225  0364  1D03               	btfss	3,2
+  3226                           
+  3227                           ;ms82_eeprom.c: 56: return 0;
+  3228  0365  3400               	retlw	0
+  3229                           
+  3230                           ;ms82_eeprom.c: 57: else{
+  3231                           ;ms82_eeprom.c: 58: for(i=0;i<len1;i++){
+  3232  0366  01F9               	clrf	comArr@i
+  3233  0367                     l5379:	
+  3234  0367  0873               	movf	comArr@len1,w
+  3235  0368  0279               	subwf	comArr@i,w
+  3236                           
+  3237                           ;ms82_eeprom.c: 59: if(*(arr1+i) != *(arr2+i)){
+  3238  0369  0879               	movf	comArr@i,w
+  3239  036A  1803               	btfsc	3,0
+  3240  036B  2B7C               	goto	L5
+  3241  036C  0772               	addwf	comArr@arr2,w
+  3242  036D  00F5               	movwf	??_comArr
+  3243  036E  0084               	movwf	4
+  3244  036F  1383               	bcf	3,7	;select IRP bank0
+  3245  0370  0800               	movf	0,w
+  3246  0371  00F6               	movwf	??_comArr+1
+  3247  0372  0879               	movf	comArr@i,w
+  3248  0373  0778               	addwf	comArr@arr1,w
+  3249  0374  00F7               	movwf	??_comArr+2
+  3250  0375  0084               	movwf	4
+  3251  0376  0800               	movf	0,w
+  3252  0377  0676               	xorwf	??_comArr+1,w
+  3253  0378  1D03               	btfss	3,2
+  3254  0379  3400               	retlw	0
+  3255  037A  0AF9               	incf	comArr@i,f
+  3256  037B  2B67               	goto	l5379
+  3257  037C                     L5:	
+  3258                           ;ms82_eeprom.c: 61: }
+  3259                           ;ms82_eeprom.c: 62: }
+  3260                           ;ms82_eeprom.c: 63: if(i==len1)
+  3261                           
+  3262  037C  0673               	xorwf	comArr@len1,w
+  3263  037D  1903               	btfsc	3,2
+  3264                           
+  3265                           ;ms82_eeprom.c: 64: return 1;
+  3266  037E  3401               	retlw	1
+  3267  037F  3400               	retlw	0
+  3268  0380                     __end_of_comArr:	
+  3269                           
+  3270                           	psect	text539
+  3271  04B7                     __ptext539:	
+  3272 ;; =============== function _comArr ends ============
+  3273                           
+  3274                           
+  3275 ;; *************** function _eepromReadByte *****************
+  3276 ;; Defined at:
+  3277 ;;		line 7 in file "ms82_eeprom.c"
+  3278 ;; Parameters:    Size  Location     Type
+  3279 ;;  EEAddr          1    wreg     unsigned char 
+  3280 ;; Auto vars:     Size  Location     Type
+  3281 ;;  EEAddr          1    2[COMMON] unsigned char 
+  3282 ;;  ReEepromData    1    3[COMMON] unsigned char 
+  3283 ;; Return value:  Size  Location     Type
+  3284 ;;                  1    wreg      unsigned char 
+  3285 ;; Registers used:
+  3286 ;;		wreg
+  3287 ;; Tracked objects:
+  3288 ;;		On entry : 0/20
+  3289 ;;		On exit  : 60/20
+  3290 ;;		Unchanged: FFF9F/0
+  3291 ;; Data sizes:     COMMON   BANK0   BANK1
+  3292 ;;      Params:         0       0       0
+  3293 ;;      Locals:         2       0       0
+  3294 ;;      Temps:          0       0       0
+  3295 ;;      Totals:         2       0       0
+  3296 ;;Total ram usage:        2 bytes
+  3297 ;; Hardware stack levels used:    1
+  3298 ;; Hardware stack levels required when called:    1
+  3299 ;; This function calls:
+  3300 ;;		Nothing
+  3301 ;; This function is called by:
+  3302 ;;		_eepromReadBlock
+  3303 ;;		_main
+  3304 ;; This function uses a non-reentrant model
+  3305 ;;
+  3306  04B7                     _eepromReadByte:	
+  3307                           
+  3308                           ; Regs used in _eepromReadByte: [wreg]
+  3309                           ;eepromReadByte@EEAddr stored from wreg
+  3310  04B7  00F2               	movwf	eepromReadByte@EEAddr
+  3311                           
+  3312                           ;ms82_eeprom.c: 8: unsigned char ReEepromData;
+  3313                           ;ms82_eeprom.c: 10: EEADR = EEAddr;
+  3314  04B8  1683               	bsf	3,5	;RP0=1, select bank1
+  3315  04B9  1303               	bcf	3,6	;RP1=0, select bank1
+  3316  04BA  009B               	movwf	27	;volatile
+  3317                           
+  3318                           ;ms82_eeprom.c: 11: RD = 1;
+  3319  04BB  141C               	bsf	28,0
+  3320                           
+  3321                           ;ms82_eeprom.c: 12: ReEepromData = EEDAT;
+  3322  04BC  081A               	movf	26,w	;volatile
+  3323  04BD  00F3               	movwf	eepromReadByte@ReEepromData
+  3324                           
+  3325                           ;ms82_eeprom.c: 13: RD = 0;
+  3326  04BE  101C               	bcf	28,0
+  3327                           
+  3328                           ;ms82_eeprom.c: 14: return ReEepromData;
+  3329  04BF  0008               	return
+  3330  04C0                     __end_of_eepromReadByte:	
+  3331                           
+  3332                           	psect	text540
+  3333  042B                     __ptext540:	
+  3334 ;; =============== function _eepromReadByte ends ============
+  3335                           
+  3336                           
+  3337 ;; *************** function _int_init *****************
+  3338 ;; Defined at:
+  3339 ;;		line 66 in file "sysinit.c"
+  3340 ;; Parameters:    Size  Location     Type
+  3341 ;;		None
+  3342 ;; Auto vars:     Size  Location     Type
+  3343 ;;		None
+  3344 ;; Return value:  Size  Location     Type
+  3345 ;;		None               void
+  3346 ;; Registers used:
+  3347 ;;		status,2
+  3348 ;; Tracked objects:
+  3349 ;;		On entry : 60/0
+  3350 ;;		On exit  : 60/20
+  3351 ;;		Unchanged: FFF9F/0
+  3352 ;; Data sizes:     COMMON   BANK0   BANK1
+  3353 ;;      Params:         0       0       0
+  3354 ;;      Locals:         0       0       0
+  3355 ;;      Temps:          0       0       0
+  3356 ;;      Totals:         0       0       0
+  3357 ;;Total ram usage:        0 bytes
+  3358 ;; Hardware stack levels used:    1
+  3359 ;; Hardware stack levels required when called:    1
+  3360 ;; This function calls:
+  3361 ;;		Nothing
+  3362 ;; This function is called by:
+  3363 ;;		_main
+  3364 ;; This function uses a non-reentrant model
+  3365 ;;
+  3366  042B                     _int_init:	
+  3367                           
+  3368                           ;sysinit.c: 71: INTCON = 0B00000000;
+  3369                           
+  3370                           ; Regs used in _int_init: [status,2]
+  3371  042B  018B               	clrf	11	;volatile
+  3372                           
+  3373                           ;sysinit.c: 72: PIE1 = 0B00000000;
+  3374  042C  1683               	bsf	3,5	;RP0=1, select bank1
+  3375  042D  018C               	clrf	12	;volatile
+  3376                           
+  3377                           ;sysinit.c: 73: PIR1 = 0B00000000;
+  3378  042E  1283               	bcf	3,5	;RP0=0, select bank0
+  3379  042F  018C               	clrf	12	;volatile
+  3380                           
+  3381                           ;sysinit.c: 85: T0IF = 0;
+  3382  0430  110B               	bcf	11,2
+  3383                           
+  3384                           ;sysinit.c: 86: T0IE = 0;
+  3385  0431  128B               	bcf	11,5
+  3386                           
+  3387                           ;sysinit.c: 87: TMR1ON = 0;
+  3388  0432  1010               	bcf	16,0
+  3389                           
+  3390                           ;sysinit.c: 89: TMR2IF = 0;
+  3391  0433  108C               	bcf	12,1
+  3392                           
+  3393                           ;sysinit.c: 90: TMR2IE = 0;
+  3394  0434  1683               	bsf	3,5	;RP0=1, select bank1
+  3395  0435  108C               	bcf	12,1
+  3396                           
+  3397                           ;sysinit.c: 93: TMR1IF = 0;
+  3398  0436  1283               	bcf	3,5	;RP0=0, select bank0
+  3399  0437  100C               	bcf	12,0
+  3400                           
+  3401                           ;sysinit.c: 94: TMR1IE = 0;
+  3402  0438  1683               	bsf	3,5	;RP0=1, select bank1
+  3403  0439  100C               	bcf	12,0
+  3404                           
+  3405                           ;sysinit.c: 96: PEIE = 0;
+  3406  043A  130B               	bcf	11,6
+  3407                           
+  3408                           ;sysinit.c: 98: GIE = 1;
+  3409  043B  178B               	bsf	11,7
+  3410  043C  0008               	return
+  3411  043D                     __end_of_int_init:	
+  3412                           
+  3413                           	psect	text541
+  3414  04AD                     __ptext541:	
+  3415 ;; =============== function _int_init ends ============
+  3416                           
+  3417                           
+  3418 ;; *************** function _timer_init *****************
+  3419 ;; Defined at:
+  3420 ;;		line 44 in file "sysinit.c"
+  3421 ;; Parameters:    Size  Location     Type
+  3422 ;;		None
+  3423 ;; Auto vars:     Size  Location     Type
+  3424 ;;		None
+  3425 ;; Return value:  Size  Location     Type
+  3426 ;;		None               void
+  3427 ;; Registers used:
+  3428 ;;		wreg
+  3429 ;; Tracked objects:
+  3430 ;;		On entry : 60/20
+  3431 ;;		On exit  : 60/0
+  3432 ;;		Unchanged: FFF9F/0
+  3433 ;; Data sizes:     COMMON   BANK0   BANK1
+  3434 ;;      Params:         0       0       0
+  3435 ;;      Locals:         0       0       0
+  3436 ;;      Temps:          0       0       0
+  3437 ;;      Totals:         0       0       0
+  3438 ;;Total ram usage:        0 bytes
+  3439 ;; Hardware stack levels used:    1
+  3440 ;; Hardware stack levels required when called:    1
+  3441 ;; This function calls:
+  3442 ;;		Nothing
+  3443 ;; This function is called by:
+  3444 ;;		_main
+  3445 ;; This function uses a non-reentrant model
+  3446 ;;
+  3447  04AD                     _timer_init:	
+  3448                           
+  3449                           ;sysinit.c: 46: OPTION = 0B00000001;
+  3450                           
+  3451                           ; Regs used in _timer_init: [wreg]
+  3452  04AD  3001               	movlw	1
+  3453  04AE  0081               	movwf	1	;volatile
+  3454                           
+  3455                           ;sysinit.c: 59: TMR1H = -5000>>8;
+  3456  04AF  30EC               	movlw	236
+  3457  04B0  1283               	bcf	3,5	;RP0=0, select bank0
+  3458  04B1  008F               	movwf	15	;volatile
+  3459                           
+  3460                           ;sysinit.c: 60: TMR1L = -5000;
+  3461  04B2  3078               	movlw	120
+  3462  04B3  008E               	movwf	14	;volatile
+  3463                           
+  3464                           ;sysinit.c: 61: T1CON = 0B00100001;
+  3465  04B4  3021               	movlw	33
+  3466  04B5  0090               	movwf	16	;volatile
+  3467  04B6  0008               	return
+  3468  04B7                     __end_of_timer_init:	
+  3469                           
+  3470                           	psect	text542
+  3471  046D                     __ptext542:	
+  3472 ;; =============== function _timer_init ends ============
+  3473                           
+  3474                           
+  3475 ;; *************** function _gpio_init *****************
+  3476 ;; Defined at:
+  3477 ;;		line 32 in file "sysinit.c"
+  3478 ;; Parameters:    Size  Location     Type
+  3479 ;;		None
+  3480 ;; Auto vars:     Size  Location     Type
+  3481 ;;		None
+  3482 ;; Return value:  Size  Location     Type
+  3483 ;;		None               void
+  3484 ;; Registers used:
+  3485 ;;		wreg, status,2
+  3486 ;; Tracked objects:
+  3487 ;;		On entry : 60/20
+  3488 ;;		On exit  : 60/20
+  3489 ;;		Unchanged: FFF9F/0
+  3490 ;; Data sizes:     COMMON   BANK0   BANK1
+  3491 ;;      Params:         0       0       0
+  3492 ;;      Locals:         0       0       0
+  3493 ;;      Temps:          0       0       0
+  3494 ;;      Totals:         0       0       0
+  3495 ;;Total ram usage:        0 bytes
+  3496 ;; Hardware stack levels used:    1
+  3497 ;; Hardware stack levels required when called:    1
+  3498 ;; This function calls:
+  3499 ;;		Nothing
+  3500 ;; This function is called by:
+  3501 ;;		_main
+  3502 ;; This function uses a non-reentrant model
+  3503 ;;
+  3504  046D                     _gpio_init:	
+  3505                           
+  3506                           ;sysinit.c: 34: PORTA = 0B00000000;
+  3507                           
+  3508                           ; Regs used in _gpio_init: [wreg+status,2]
+  3509  046D  1283               	bcf	3,5	;RP0=0, select bank0
+  3510  046E  0185               	clrf	5	;volatile
+  3511                           
+  3512                           ;sysinit.c: 35: TRISA = 0B01110111;
+  3513  046F  3077               	movlw	119
+  3514  0470  1683               	bsf	3,5	;RP0=1, select bank1
+  3515  0471  0085               	movwf	5	;volatile
+  3516                           
+  3517                           ;sysinit.c: 36: WPUA = 0B10010000;
+  3518  0472  3090               	movlw	144
+  3519  0473  0095               	movwf	21	;volatile
+  3520                           
+  3521                           ;sysinit.c: 37: PORTC = 0B00000010;
+  3522  0474  3002               	movlw	2
+  3523  0475  1283               	bcf	3,5	;RP0=0, select bank0
+  3524  0476  0087               	movwf	7	;volatile
+  3525                           
+  3526                           ;sysinit.c: 38: TRISC = 0B11111110;
+  3527  0477  30FE               	movlw	254
+  3528  0478  1683               	bsf	3,5	;RP0=1, select bank1
+  3529  0479  0087               	movwf	7	;volatile
+  3530                           
+  3531                           ;sysinit.c: 39: WPUC = 0B00000000;
+  3532  047A  0188               	clrf	8	;volatile
+  3533  047B  0008               	return
+  3534  047C                     __end_of_gpio_init:	
+  3535                           
+  3536                           	psect	text543
+  3537  048A                     __ptext543:	
+  3538 ;; =============== function _gpio_init ends ============
+  3539                           
+  3540                           
+  3541 ;; *************** function _ISR *****************
+  3542 ;; Defined at:
+  3543 ;;		line 84 in file "MAIN.C"
+  3544 ;; Parameters:    Size  Location     Type
+  3545 ;;		None
+  3546 ;; Auto vars:     Size  Location     Type
+  3547 ;;		None
+  3548 ;; Return value:  Size  Location     Type
+  3549 ;;		None               void
+  3550 ;; Registers used:
+  3551 ;;		None
+  3552 ;; Tracked objects:
+  3553 ;;		On entry : 0/0
+  3554 ;;		On exit  : 0/0
+  3555 ;;		Unchanged: FFF9F/0
+  3556 ;; Data sizes:     COMMON   BANK0   BANK1
+  3557 ;;      Params:         0       0       0
+  3558 ;;      Locals:         0       0       0
+  3559 ;;      Temps:          2       0       0
+  3560 ;;      Totals:         2       0       0
+  3561 ;;Total ram usage:        2 bytes
+  3562 ;; Hardware stack levels used:    1
+  3563 ;; This function calls:
+  3564 ;;		Nothing
+  3565 ;; This function is called by:
+  3566 ;;		Interrupt level 1
+  3567 ;; This function uses a non-reentrant model
+  3568 ;;
+  3569  048A                     _ISR:	
+  3570                           
+  3571                           ;MAIN.C: 110: if(T0IE&&T0IF)
+  3572  048A  1A8B               	btfsc	11,5
+  3573  048B  1D0B               	btfss	11,2
+  3574  048C  2C91               	goto	i1l3451
+  3575                           
+  3576                           ;MAIN.C: 111: {
+  3577                           ;MAIN.C: 112: T0IF = 0;
+  3578  048D  110B               	bcf	11,2
+  3579                           
+  3580                           ;MAIN.C: 118: RC0 = 0;
+  3581  048E  1283               	bcf	3,5	;RP0=0, select bank0
+  3582  048F  1303               	bcf	3,6	;RP1=0, select bank0
+  3583  0490  1007               	bcf	7,0
+  3584  0491                     i1l3451:	
+  3585                           ;MAIN.C: 120: return;
+  3586                           
+  3587  0491  0871               	movf	??_ISR+1,w
+  3588  0492  008A               	movwf	10
+  3589  0493  0E70               	swapf	??_ISR^(0+-128),w
+  3590  0494  0083               	movwf	3
+  3591  0495  0EFE               	swapf	126,f
+  3592  0496  0E7E               	swapf	126,w
+  3593  0497  0009               	retfie
+  3594  0498                     __end_of_ISR:	
+  3595                           
+  3596                           	psect	intentry
+  3597  0004                     __pintentry:	
+  3598                           ; Regs used in _ISR: []
+  3599                           
+  3600  0004                     interrupt_function:	
+  3601  007E                     saved_w	set	btemp
+  3602  0004  00FE               	movwf	btemp
+  3603  0005  0E03               	swapf	3,w
+  3604  0006  00F0               	movwf	??_ISR
+  3605  0007  080A               	movf	10,w
+  3606  0008  00F1               	movwf	??_ISR+1
+  3607  0009  2C8A               	ljmp	_ISR
+  3608                           
+  3609                           	psect	text544
+  3610  0000                     __ptext544:	
+  3611 ;; =============== function _ISR ends ============
+  3612                           
+  3613  007E                     btemp	set	126	;btemp
+  3614  007E                     wtemp0	set	126
+
+
+HI-TECH Software PICC Macro Assembler V9.83 build 10920 
+Symbol Table                                                                                   Sat Nov 30 14:18:39 2019
+
+                         pc 0002              ___bmul@product 0073                          _RD 04E0  
+                        _WR 04E8                          fsr 0004                         l651 04A8  
+                       l660 0000                         l654 0000                         l663 0000  
+                       l657 0000                         _GIE 005F                         _RA3 002B  
+                       _RC0 0038                         _RA4 002C                         _PR2 0092  
+                       _HTS 047A                         _ISR 048A                         _SR0 0CF6  
+                       _SR1 0CF7                         fsr0 0004                         indf 0000  
+          get_RFID@even_col 004A            get_RFID@even_row 004B                        S6003 04C0  
+               main@idState 0055                        ?_ISR 0070                        l1322 0000  
+                      l1331 0000                        l2051 0028                        l1316 0000  
+                      l1325 02FF                        l2070 0075                        l1328 030F  
+                      l1337 0000                        l2091 00D3                        l4223 03AA  
+                      l4216 0000                        l3441 0000                        l4226 0000  
+                      l3515 026D                        l3517 0285                        l2750 03DE  
+                      l3454 0000                        l4190 0000                        l3463 0000  
+                      l3471 0000                        l3519 0299                        l5321 0000  
+                      l2753 0000                        l5323 0000                        l5331 0000  
+                      l3492 023D                        l5325 0000                        l5341 0000  
+                      l5333 0000                        l5421 0000                        l5413 0000  
+                      l5327 0000                        l5351 0000                        l5343 0000  
+                      l5335 0000                        l5407 0326                        l5423 0000  
+                      l5415 0000                        l5431 0000                        l5503 0000  
+                      l5511 0000                        l3479 0000                        l5329 0000  
+                      l5345 0000                        l5337 0000                        l5353 0000  
+                      l5361 0000                        l5409 033C                        l5425 03E4  
+                      l5417 0000                        l5433 0000                        l5505 043F  
+                      l5513 0000                        l5601 0000                        l5521 0000  
+                      l5347 0000                        l5339 0000                        l5355 0000  
+                      l5427 0000                        l5419 0000                        l5443 0000  
+                      l5435 0000                        l5451 0000                        l5515 0315  
+                      l5507 0000                        l5603 0079                        l5611 002B  
+                      l5523 000E                        l5349 0000                        l5357 0000  
+                      l5429 0000                        l5445 0000                        l5437 047E  
+                      l5517 0000                        l5509 0303                        l5701 00EB  
+                      l5613 0084                        l5605 0000                        l5541 0000  
+                      l5533 0000                        l5525 0000                        l5471 0000  
+                      l5703 0000                        l5607 007E                        l5519 0000  
+                      l5393 0000                        l5465 0000                        l5481 0000  
+                      l5473 0000                        l5721 0127                        l5713 0000  
+                      l5705 0000                        l5641 0000                        l5625 0088  
+                      l5553 0030                        l5545 0000                        l5801 0000  
+                      l5379 0367                        l5395 0000                        l5459 02E5  
+                      l5467 02F8                        l5475 0000                        l5491 03B7  
+                      l5723 0000                        l5643 00A5                        l5627 0000  
+                      l5555 0000                        l5803 0000                        l5811 0000  
+                      l5397 0000                        l5485 0000                        l5477 03A4  
+                      l5725 0000                        l5717 011D                        l5653 00B0  
+                      l5629 0000                        l5581 0000                        l5573 0000  
+                      l5565 003F                        l5741 0000                        l5805 0000  
+                      l5813 0353                        l5821 0000                        l5399 0000  
+                      l5495 0000                        l5727 0000                        l5719 0000  
+                      l5671 0000                        l5663 00C1                        l5655 0000  
+                      l5647 0000                        l5639 009C                        l5591 0069  
+                      l5567 0000                        l5583 0056                        l5807 0000  
+                      l5911 0000                        l5831 0000                        l5823 0000  
+                      l5815 0000                        l5489 0000                        l5497 0000  
+                      l5729 0000                        l5681 0000                        l5665 0000  
+                      l5657 0000                        l5593 0000                        l5569 0048  
+                      l5745 044F                        l5761 0000                        l5753 03BB  
+                      l5921 0000                        l5905 0000                        l5913 020D  
+                      l5833 0000                        l5825 0000                        l5817 0000  
+                      l5499 0000                        l5691 00E1                        l5667 00CA  
+                      l5659 00B7                        l5595 0000                        l5587 0060  
+                      l5579 0053                        l5747 0000                        l5771 0000  
+                      l5915 0212                        l5843 018F                        l5835 0000  
+                      l5827 0000                        l5819 0000                        l5693 0000  
+                      l5677 0000                        l5669 0000                        l5589 0000  
+                      l5773 041B                        l5941 0258                        l5925 0000  
+                      l5909 0000                        l5933 0232                        l5853 01A0  
+                      l5845 0000                        l5837 0000                        l5829 0000  
+                      l5695 0000                        l5679 00D6                        l5767 0000  
+                      l5783 0000                        l5791 0403                        l5775 0000  
+                      l5935 0000                        l5927 0000                        l5871 0000  
+                      l5855 0000                        l5847 0000                        l5839 0000  
+                      l5785 0000                        l5777 0000                        l5793 0000  
+                      l5953 0275                        l5929 022D                        l5881 0000  
+                      l5873 0000                        l5865 01B9                        l5937 024B  
+                      l5849 019B                        l5787 0000                        l5779 0000  
+                      l5795 0000                        l5947 0267                        l5955 0280  
+                      l5939 0000                        l5883 0000                        l5875 01CA  
+                      l5867 0000                        l5859 01AC                        l5797 0000  
+                      l5965 029A                        l5949 0270                        l5893 0000  
+                      l5885 0000                        l5877 0000                        l5869 0000  
+                      l5799 0000                        l5959 0286                        l5895 0000  
+                      l5887 01DE                        l5897 0000                        l5899 01F3  
+                      _EEIF 0067                        _T0IE 005D                        _T0IF 005A  
+                      u1015 0337                        u1085 02EB                        u1544 00F4  
+                      u1545 00F2                        _PIE1 008C                        u1917 0173  
+                      u1927 0245                        u1937 0252                        u1947 0458  
+                      u1875 0264                        _PEIE 005E                        u1957 0319  
+                      _PIR1 000C                        _TMR2 0011                        _STRA 0CE8  
+                      _STRB 0CE9                        _STRC 0CEA                        _STRD 0CEB  
+                      _WREN 0C62                        _WPUA 0095                        _WPUC 0088  
+                      _main 0158                        btemp 007E                        start 000A  
+         ___bmul@multiplier 0074                       ??_ISR 0070                       _C1SEN 0CF5  
+                     _C2REN 0CF4                       ?_main 0070             __end_of___lbdiv 03B9  
+                     _EEADR 009B                       _EEDAT 009A                       _EEPGD 0C67  
+                     _T1CON 0010                       _T2CON 0012             __end_of___lwmod 02FD  
+                     _TMR1H 000F                       _TMR1L 000E                       _PORTA 0005  
+                     _PORTC 0007                       _SRCON 019E                       _PULSR 0CF2  
+                     _PULSS 0CF3                       _TRISA 0085                       _TRISC 0087  
+                     _beep2 0402    __size_of_eepromReadBlock 0011                       _keyID 005E  
+                     pclath 000A                       status 0003                       wtemp0 007E  
+           ___lbdiv@divisor 0072             ___lbdiv@counter 0074        __size_of_delay_x10ms 0010  
+          ??_eepromReadByte 0072            _eepromWriteBlock 0419                __end_of_main 029E  
+                    ??_main 0052            eepromReadBlock@i 0078                      ?_beep2 0075  
+                    _EECON1 009C    __size_of_eepromWriteByte 0023                      i1l3451 0491  
+                    i1l4721 0000                      _INTCON 000B                      _OSCCON 008F  
+                    _TMR1IE 0460                      _TMR1IF 0060                      _TMR2IE 0461  
+                    _TMR2IF 0061                      _OPTION 0081                      _TMR1ON 0080  
+              ?_SET_EPWM_ON 0070            __end_of_get_RFID 0141            __end_of_id_clear 0361  
+        get_RFID@timeOutVal 004F                      ___bmul 047C                   ??___lbdiv 0073  
+                    _comArr 0361                   ??___lwmod 0076                      _kepTag 005C  
+          __end_of_int_init 043D            __end_of_setState 04A3                      saved_w 007E  
+          __end_of_timerOut 0341         eepromReadBlock@buff 0074            ___lbdiv@dividend 0073  
+          __end_of_sys_init 04AD           ??_eepromReadBlock 0076         ___bmul@multiplicand 0072  
+            __pcstackCOMMON 0070                __pidataBANK0 0380               __end_of_beep2 0419  
+          ___lbdiv@quotient 0075          __size_of_id_search 001A                     ??_beep2 0076  
+                __pbssBANK0 0058          __size_of_gpio_init 000F           ??_eepromWriteByte 0073  
+                __pmaintext 0158                     ?___bmul 0072                     ?_comArr 0072  
+                __pintentry 0004                  _id_replate 029E                     _EPWMR1L 0013  
+                 ?_get_RFID 0070                   ?_id_clear 0042                     _PWM1CON 0016  
+  __end_of_eepromWriteBlock 042B                     _PSTRCON 019D                     _STRSYNC 0CEC  
+                 ?_int_init 0070    get_RFID@RF_serial_55bits 003E           __end_of_id_search 03D3  
+               setState@stt 0074        __size_of_SET_EPWM_ON 0018                   ?_setState 0072  
+                 ?_timerOut 0072             __size_of___bmul 000E                     ___lbdiv 039E  
+                   ___lwmod 02D9             __size_of_comArr 001F                     _buffTag 0025  
+         __end_of_gpio_init 047C                   ?_sys_init 0070                __size_of_ISR 000E  
+                   _mtState 005D                     comArr@i 0079                  ??_get_RFID 0077  
+                ??_id_clear 007C                     _timeOut 0058                  comArr@arr1 0078  
+                comArr@arr2 0072                  comArr@len1 0073                  comArr@len2 0074  
+                   main@tmp 0056        end_of_initialization 0400               ??_delay_x10ms 0072  
+                   init_ram 0462                  get_RFID@ii 0051                  ??_int_init 0072  
+                ??_setState 0074         eepromWriteBlock@len 0077                  ??_timerOut 0074  
+     get_RFID@flag_RFID_syn 0049                  id_search@i 003F                  _timer_init 04AD  
+               ?_id_replate 003E                  ??_sys_init 0072             _eepromReadBlock 043D  
+       __end_of_delay_x10ms 045E              __end_of___bmul 048A              __end_of_comArr 0380  
+   __size_of_eepromReadByte 0009        eepromReadByte@EEAddr 0072         start_initialization 03EB  
+               __end_of_ISR 0498             _eepromWriteByte 02FD               setState@_tOut 0072  
+eepromReadByte@ReEepromData 0073         __size_of_id_replate 0034                    ??___bmul 0073  
+                  ??_comArr 0075                 __pdataBANK0 0020     __end_of_eepromReadBlock 044E  
+               ?_timer_init 0070          eepromReadBlock@len 0075               __pcstackBANK0 003E  
+             id_clear@idMax 0042               id_clear@idMin 0048           ?_eepromWriteBlock 0076  
+         __size_of_get_RFID 0136           __size_of_id_clear 0020          ??_eepromWriteBlock 0078  
+               _delay_x10ms 044E           __size_of_int_init 0012                    ?___lbdiv 0072  
+         __size_of_setState 000B                   __ptext530 043D                   __ptext522 0341  
+                 __ptext531 04A3                   __ptext523 029E                   __ptext540 042B  
+                 __ptext532 039E                   __ptext524 0402                   __ptext541 04AD  
+                 __ptext533 02D9                   __ptext525 0419                   __ptext542 046D  
+                 __ptext534 047C                   __ptext526 03B9                   __ptext543 048A  
+                 __ptext535 0498                   __ptext527 044E                   __ptext544 0000  
+                 __ptext536 03D3                   __ptext528 000B                   __ptext537 0320  
+                 __ptext529 02FD                   __ptext538 0361                   __ptext539 04B7  
+                 _id_search 03B9                    ?___lwmod 0072           __size_of_timerOut 0021  
+                 __pswtext1 04C0     __end_of_eepromWriteByte 0320           __size_of_sys_init 000A  
+                 _gpio_init 046D              __size_of_beep2 0017                    _EPWM1CON 0015  
+                  _EPWM1AUX 0090           interrupt_function 0004               ??_SET_EPWM_ON 0072  
+       __size_of_timer_init 000A                   get_RFID@i 004D                   get_RFID@j 004C  
+                ?_id_search 007A                delay_x10ms@t 0074            timerOut@CurTimer 0075  
+            _eepromReadByte 04B7            ?_eepromReadBlock 0074                ??_id_replate 0040  
+                ?_gpio_init 0070          __end_of_id_replate 02D2                   init_fetch 045E  
+       __end_of_SET_EPWM_ON 03EB              id_replate@Cont 003E      __end_of_eepromReadByte 04C0  
+              id_clear@F962 0020            __size_of___lbdiv 001B              id_replate@buff 003F  
+          __size_of___lwmod 0024           id_search@id_input 003E            ?_eepromWriteByte 0072  
+   eepromReadBlock@addStart 0077                    beep2@sel 0076                    beep2@rep 0075  
+                  _get_RFID 000B                    _id_clear 0341               __size_of_main 0146  
+                  _int_init 042B               id_search@buff 007A                    _setState 0498  
+         eepromWriteBlock@i 007A                    _timeTick 005A                    _timerOut 0320  
+               ??_id_search 007B             ?_eepromReadByte 0070                    main@idop 0057  
+              ??_timer_init 0072                    _sys_init 04A3    eepromWriteBlock@addStart 0079  
+               ??_gpio_init 0072                 id_clear@tmp 0043                    intlevel1 0000  
+          ___lwmod@dividend 0074                ?_delay_x10ms 0070                 _SET_EPWM_ON 03D3  
+        __end_of_timer_init 04B7        eepromWriteBlock@buff 0076   __size_of_eepromWriteBlock 0012  
+     eepromWriteByte@EEAddr 0075       eepromWriteByte@EEData 0072      get_RFID@flag_RFID_last 004E  
+              id_replate@id 007B             ___lwmod@divisor 0072             ___lwmod@counter 0076  
+             timerOut@Logic 0074                timerOut@time 0072  
