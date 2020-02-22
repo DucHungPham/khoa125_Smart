@@ -9,9 +9,9 @@
 	; Compiler options:
 	;
 	; -osmartkey.cof -msmartkey.map --summary=default --output=default \
-	; sysinit.p1 ms82_eeprom.p1 rfid125.p1 ms82_pwm.p1 main.p1 \
-	; --chip=16F685 -P --runtime=default --opt=default -D__DEBUG=1 -g \
-	; --asmlist --errformat=Error   [%n] %f; %l.%c %s \
+	; --codeoffset=00 sysinit.p1 ms82_eeprom.p1 rfid125.p1 ms82_pwm.p1 \
+	; main.p1 --chip=16F685 -P --runtime=default --opt=default -D__DEBUG=1 \
+	; -g --asmlist --errformat=Error   [%n] %f; %l.%c %s \
 	; --msgformat=Advisory[%n] %s --warnformat=Warning [%n] %f; %l.%c %s
 	;
 
@@ -71,13 +71,11 @@ _exit
 
 psect bank0,class=BANK0,space=1
 psect bank1,class=BANK1,space=1
-psect bank2,class=BANK2,space=1
 psect ram,class=RAM,space=1
 psect abs1,class=ABS1,space=1
 psect common,class=COMMON,space=1
 psect sfr0,class=SFR0,space=1
 psect sfr1,class=SFR1,space=1
-psect sfr2,class=SFR2,space=1
 
 
 	end	start
